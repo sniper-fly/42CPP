@@ -1,11 +1,11 @@
 
-NAME = megaphone
+NAME = crappy
 
 CXX	= clang++
 CXXFLAGS = -Wall -Wextra -Werror
 
-SRCS = megaphone.cpp
-OBJS = $(SRCS:%.cpp=%.o)
+SRCS = crappy.cpp
+OBJS = $(SRCS:%.c=%.o)
 
 all: $(NAME)
 
