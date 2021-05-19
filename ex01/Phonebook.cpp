@@ -1,4 +1,6 @@
+
 #include "Phonebook.hpp"
+#include <iostream>
 
 Phonebook::Phonebook(void)
 {
@@ -20,38 +22,9 @@ bool			Phonebook::isEmpty(void)
 	return _is_empty;
 }
 
-std::string		Phonebook::getFirstName(void)
+std::string		Phonebook::getStrData(int i)
 {
-	return _first_name;
-}
-
-std::string		Phonebook::getLastName(void)
-{
-	return _last_name;
-}
-
-std::string		Phonebook::getNickName(void)
-{
-	return _nickname;
-}
-
-std::string		Phonebook::getLogin(void)
-{
-	return _login;
-}
-
-std::string		Phonebook::getPostalAddress(void)
-{
-	return _postal_address;
-}
-std::string		Phonebook::getEmailAddress(void)
-{
-	return _email_address;
-}
-
-int		Phonebook::getPhoneNumber(void)
-{
-	return _phone_number;
+	return string_data[i];
 }
 
 int				Phonebook::getBirthdayYear(void)
@@ -69,82 +42,22 @@ int				Phonebook::getBirthdayDate(void)
 	return _birthday_date;
 }
 
-std::string		Phonebook::getFavoriteMeal(void)
+void		Phonebook::setStrData(int i, std::string data)
 {
-	return _favorite_meal;
+	this->string_data[i] = data;
 }
 
-std::string		Phonebook::getUnderwearColor(void)
-{
-	return _underwear_color;
-}
+// int			Phonebook::setBirthdayYear(int year)
+// {
+// 	this->_birthday_year = year;
+// }
 
-std::string		Phonebook::getDarkestSecret(void)
-{
-	return _darkest_secret;
-}
+// int			Phonebook::setBirthdayMonth(int month)
+// {
+// 	this->_birthday_month = month;
+// }
 
-void		Phonebook::setFirstName(std::string first_name)
-{
-	this->_first_name = first_name;
-}
-
-void		Phonebook::setLastName(std::string last_name)
-{
-	this->_last_name = last_name;
-}
-
-void		Phonebook::setNickName(std::string nick_name)
-{
-	this->_nickname = nick_name;
-}
-
-void		Phonebook::setLogin(std::string login)
-{
-	this->_login = login;
-}
-
-void		Phonebook::setPostalAddress(std::string postal_address)
-{
-	this->_postal_address = postal_address;
-}
-
-int			Phonebook::setEmailAddress(std::string email_address)
-{
-	this->_email_address = email_address;
-}
-
-int			Phonebook::setPhoneNumber(int phone_number)
-{
-	this->_phone_number = phone_number;
-}
-
-int			Phonebook::setBirthdayYear(int year)
-{
-	this->_birthday_year = year;
-}
-
-int			Phonebook::setBirthdayMonth(int month)
-{
-	this->_birthday_month = month;
-}
-
-int			Phonebook::setBirthdayDate(int date)
-{
-	this->_birthday_date = date;
-}
-
-void		Phonebook::setFavoriteMeal(std::string meal)
-{
-	
-}
-
-void		Phonebook::setUnderwearColor(std::string color)
-{
-	
-}
-
-void		Phonebook::setDarkestSecret(std::string darkest_secret)
-{
-	
-}
+// int			Phonebook::setBirthdayDate(int date)
+// {
+// 	this->_birthday_date = date;
+// }
