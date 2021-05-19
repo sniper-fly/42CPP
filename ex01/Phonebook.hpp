@@ -42,7 +42,7 @@ class		Phonebook
 		void		setLastName(std::string last_name);
 		void		setNickName(std::string nick_name);
 		void		setLogin(std::string login);
-		void		setPostalAddress(int postal_address);
+		void		setPostalAddress(std::string postal_address);
 		// void		setProperty(std::string &to_set, std::string property);
 		int			setEmailAddress(std::string email_address);
 		int			setPhoneNumber(int phone_number);

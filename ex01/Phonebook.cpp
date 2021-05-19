@@ -104,7 +104,7 @@ void		Phonebook::setLogin(std::string login)
 	this->_login = login;
 }
 
-void		Phonebook::setPostalAddress(int postal_address)
+void		Phonebook::setPostalAddress(std::string postal_address)
 {
 	this->_postal_address = postal_address;
 }
