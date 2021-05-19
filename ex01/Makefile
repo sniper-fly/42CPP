@@ -4,8 +4,8 @@ NAME = crappy
 CXX	= clang++
 CXXFLAGS = -Wall -Wextra -Werror
 
-SRCS = crappy.cpp
-OBJS = $(SRCS:%.c=%.o)
+SRCS = $(shell find . -type f -name "*.cpp")
+OBJS = $(SRCS:%.cpp=%.o)
 
 all: $(NAME)
 
