@@ -1,5 +1,15 @@
 #include "Phonebook.hpp"
 
+Phonebook::Phonebook(void)
+{
+	_is_empty = true;
+}
+
+Phonebook::~Phonebook(void)
+{
+	return ;
+}
+
 int				Phonebook::getIndex(void)
 {
 	return _index;
@@ -7,7 +17,7 @@ int				Phonebook::getIndex(void)
 
 bool			Phonebook::isEmpty(void)
 {
-	return _isempty;
+	return _is_empty;
 }
 
 std::string		Phonebook::getFirstName(void)
@@ -39,12 +49,22 @@ std::string		Phonebook::getEmailAddress(void)
 	return _email_address;
 }
 
-std::string		Phonebook::getPhoneNumber(void)
+int		Phonebook::getPhoneNumber(void)
 {
 	return _phone_number;
 }
 
-struct tm		Phonebook::getBirthdayDate(void)
+int				Phonebook::getBirthdayYear(void)
+{
+	return _birthday_year;
+}
+
+int				Phonebook::getBirthdayMonth(void)
+{
+	return _birthday_month;
+}
+
+int				Phonebook::getBirthdayDate(void)
 {
 	return _birthday_date;
 }
@@ -62,4 +82,69 @@ std::string		Phonebook::getUnderwearColor(void)
 std::string		Phonebook::getDarkestSecret(void)
 {
 	return _darkest_secret;
+}
+
+void		Phonebook::setFirstName(std::string first_name)
+{
+	this->_first_name = first_name;
+}
+
+void		Phonebook::setLastName(std::string last_name)
+{
+	this->_last_name = last_name;
+}
+
+void		Phonebook::setNickName(std::string nick_name)
+{
+	this->_nickname = nick_name;
+}
+
+void		Phonebook::setLogin(std::string login)
+{
+	this->_login = login;
+}
+
+void		Phonebook::setPostalAddress(int postal_address)
+{
+	this->_postal_address = postal_address;
+}
+
+int			Phonebook::setEmailAddress(std::string email_address)
+{
+	this->_email_address = email_address;
+}
+
+int			Phonebook::setPhoneNumber(int phone_number)
+{
+	this->_phone_number = phone_number;
+}
+
+int			Phonebook::setBirthdayYear(int year)
+{
+	this->_birthday_year = year;
+}
+
+int			Phonebook::setBirthdayMonth(int month)
+{
+	this->_birthday_month = month;
+}
+
+int			Phonebook::setBirthdayDate(int date)
+{
+	this->_birthday_date = date;
+}
+
+void		Phonebook::setFavoriteMeal(std::string meal)
+{
+	
+}
+
+void		Phonebook::setUnderwearColor(std::string color)
+{
+	
+}
+
+void		Phonebook::setDarkestSecret(std::string darkest_secret)
+{
+	
 }
