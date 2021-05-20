@@ -36,15 +36,13 @@ int		Phonebook::setEmailAddress(std::string email_address)
 	return (true);
 }
 
-static int ft_isnum(char ch) { return ('0' <= ch && ch <= '9'); }
-
 int		Phonebook::setPhoneNumber(std::string phone_number)
 {
 	if (phone_number[0] == '\0')
 		;
 	else {
 		for (int i = 0; phone_number[i]; i++) {
-			if (!ft_isnum(phone_number[i]))
+			if (!isdigit(phone_number[i]))
 				return (false);
 		}
 	}
@@ -52,17 +50,22 @@ int		Phonebook::setPhoneNumber(std::string phone_number)
 	return (true);
 }
 
-// int			Phonebook::setBirthdayYear(int year)
-// {
-// 	this->_birthday_year = year;
-// }
+int			Phonebook::setBirthdayYear(std::string year)
+{
+	int y;
 
-// int			Phonebook::setBirthdayMonth(int month)
-// {
-// 	this->_birthday_month = month;
-// }
+	y = std::stoi(year);
+	this->_birthday_year = y;
+}
 
-// int			Phonebook::setBirthdayDate(int date)
-// {
-// 	this->_birthday_date = date;
-// }
+int			Phonebook::setBirthdayMonth(std::string month)
+{
+	int m;
+	m = std::stoi(month);
+}
+
+int			Phonebook::setBirthdayDate(std::string date)
+{
+	int d;
+	d = std::stoi(date);
+}

@@ -55,9 +55,9 @@ class		Phonebook
 		void		setStrData(int i, std::string data);
 		int			setEmailAddress(std::string email_address);
 		int			setPhoneNumber(std::string phone_number);
-		int			setBirthdayYear(int year);
-		int			setBirthdayMonth(int month);
-		int			setBirthdayDate(int date);
+		int			setBirthdayYear(std::string year);
+		int			setBirthdayMonth(std::string month);
+		int			setBirthdayDate(std::string date);
 
 		Phonebook(void);
 		~Phonebook(void);
