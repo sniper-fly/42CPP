@@ -35,6 +35,27 @@ void	add_phonebook(Phonebook contacts)
 		std::cout << RED << "Entered phone number seems to be wrong. Plz confirm."
 		<< RESET << std::endl;
 	}
+	while (true) {
+		receive_contact("birthday year", input);
+		if (contacts.setBirthdayYear(input))
+			break ;
+		std::cout << RED << "Entered birthday year seems to be wrong. Plz confirm."
+		<< RESET << std::endl;
+	}
+	while (true) {
+		receive_contact("birthday month", input);
+		if (contacts.setBirthdayMonth(input))
+			break ;
+		std::cout << RED << "Entered birthday month seems to be wrong. Plz confirm."
+		<< RESET << std::endl;
+	}
+	while (true) {
+		receive_contact("birthday date", input);
+		if (contacts.setBirthdayDate(input))
+			break ;
+		std::cout << RED << "Entered birthday date seems to be wrong. Plz confirm."
+		<< RESET << std::endl;
+	}
 	std::cout << GREEN << "-----Your phonebook has registered.-----"
 			  << RESET << std::endl;
 }
