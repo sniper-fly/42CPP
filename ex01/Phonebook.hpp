@@ -52,6 +52,7 @@ class		Phonebook
 		int				getBirthdayMonth(void);
 		int				getBirthdayDate(void);
 
+		void		setIsEmpty(bool tf);
 		void		setStrData(int i, std::string data);
 		int			setEmailAddress(std::string email_address);
 		int			setPhoneNumber(std::string phone_number);
