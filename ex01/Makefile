@@ -2,7 +2,7 @@
 NAME = crappy
 
 CXX	= clang++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 SRCS = $(shell find . -type f -name "*.cpp")
 OBJS = $(SRCS:%.cpp=%.o)

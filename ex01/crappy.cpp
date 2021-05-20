@@ -68,13 +68,12 @@ void	wait_user_command(void)
 
 	while (true) {
 		std::cout << "> ";
-		// std::cin >> cmd;
 		getline(std::cin, cmd, '\n');
 		if (cmd == "exit" || cmd == "EXIT" || std::cin.eof()) {
 			break;
 		}
 		else if (cmd == "add" || cmd == "ADD") {
-			if (idx > 8) {
+			if (idx > TOTAL_CONTACTS - 1) {
 				std::cout << RED << "Phonebook is full." << RESET << std::endl;
 				continue ;
 			}
