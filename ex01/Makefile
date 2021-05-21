@@ -1,5 +1,5 @@
 
-NAME = crappy
+NAME = phonebook
 
 CXX	= clang++
 CXXFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
