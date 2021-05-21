@@ -48,6 +48,8 @@ class		Phonebook
 		int				getBirthdayMonth(void);
 		int				getBirthdayDate(void);
 
+		void		showAllInfo(void);
+
 		void		setIsEmpty(bool tf);
 		void		setStrData(int i, std::string data);
 		int			setPhoneNumber(std::string phone_number);

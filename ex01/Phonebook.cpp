@@ -25,25 +25,20 @@ int				Phonebook::getBirthdayYear(void) { return _birthday_year; }
 int				Phonebook::getBirthdayMonth(void) { return _birthday_month; }
 int				Phonebook::getBirthdayDate(void) { return _birthday_date; }
 
+void			Phonebook::showAllInfo(void)
+{
+	for (int i = 0; i < TOTAL_DATA; i++) {
+		std::cout << contact_str[i] << ":" << string_data[i] << std::endl;
+	}
+	std::cout << "Phone number:" << _phone_number << std::endl;
+	std::cout << "Birthday:" 
+	<< _birthday_year << ' '
+	<< _birthday_month << '/'
+	<< _birthday_date << std::endl;
+}
+
 void	Phonebook::setIsEmpty(bool tf) { this->_is_empty = tf; }
 void	Phonebook::setStrData(int i, std::string data) { this->string_data[i] = data; }
-
-// static int is_email_valid(std::string email_address)
-// {
-// 	const std::regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
-// 	return (std::regex_match(email_address, pattern));
-// }
-// regex はC11なので使えない
-
-// int		Phonebook::setEmailAddress(std::string email_address)
-// {
-// 	if (email_address[0] == '\0')
-// 		;
-// 	else if (!is_email_valid(email_address))
-// 		return (false);
-// 	this->_email_address = email_address;
-// 	return (true);
-// }
 
 static int is_digitstr(std::string number)
 {
@@ -121,3 +116,20 @@ int			Phonebook::setBirthdayDate(std::string date)
 	_birthday_date = d;
 	return (true);
 }
+
+// static int is_email_valid(std::string email_address)
+// {
+// 	const std::regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
+// 	return (std::regex_match(email_address, pattern));
+// }
+// regex はC11なので使えない
+
+// int		Phonebook::setEmailAddress(std::string email_address)
+// {
+// 	if (email_address[0] == '\0')
+// 		;
+// 	else if (!is_email_valid(email_address))
+// 		return (false);
+// 	this->_email_address = email_address;
+// 	return (true);
+// }
