@@ -4,7 +4,7 @@ NAME = crappy
 CXX	= clang++
 CXXFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 
-SRCS = $(shell find . -type f -name "*.cpp")
+SRCS = ./UserInterface.cpp ./main.cpp ./Phonebook.cpp 
 OBJS = $(SRCS:%.cpp=%.o)
 
 all: $(NAME)
@@ -23,4 +23,7 @@ re: fclean all
 test: all
 	./$(NAME)
 
-.PHONY: all clean fclean re test
+autogen:
+	bash ./.autogen.sh
+
+.PHONY: all clean fclean re test autogen
