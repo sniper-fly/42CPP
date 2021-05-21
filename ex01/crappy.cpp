@@ -12,7 +12,7 @@ void	receive_contact(std::string contact_str, std::string &input)
 		std::cout << contact_str << "> ";
 		getline(std::cin, input, '\n');
 		if (std::cin.eof())
-			exit(1);
+			exit(0);
 		if (input.empty()) {
 			std::cout << RED << "Plz put it something." << RESET << std::endl;
 			continue ;
@@ -76,8 +76,8 @@ void	put_elem_row(Phonebook contact[TOTAL_CONTACTS], int index)
 {
 	std::cout << '|' << std::left << std::setw(10) << index << '|'
 	<< std::left << std::setw(10) << contact[index].getStrData(FIRST_NAME) << '|'
-	<< std::left << std::setw(10)<< contact[index].getStrData(LAST_NAME) << '|'
-	<< std::left << std::setw(10)<< contact[index].getStrData(NICK_NAME) << '|' << std::endl;
+	<< std::left << std::setw(10) << contact[index].getStrData(LAST_NAME) << '|'
+	<< std::left << std::setw(10) << contact[index].getStrData(NICK_NAME) << '|' << std::endl;
 	// << contact[index].getStrData()
 	(void)contact;
 }
@@ -105,7 +105,7 @@ void	search_phonebook(Phonebook contacts[TOTAL_CONTACTS])
 		std::cout << "index> ";
 		getline(std::cin, order_str, '\n');
 		if (std::cin.eof())
-			exit (1);
+			exit (0);
 		try {
 			order = std::stoi(order_str);
 		}
@@ -117,7 +117,8 @@ void	search_phonebook(Phonebook contacts[TOTAL_CONTACTS])
 			std::cout << "Phonebook does not have index " << order << std::endl;
 			continue ;
 		}
-		// TODO: Show all member on the specified index (order)
+		contacts[order].showAllInfo();
+		break ;
 	}
 }
 
