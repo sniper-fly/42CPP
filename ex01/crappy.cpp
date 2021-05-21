@@ -88,7 +88,7 @@ void	put_phonebook_table(Phonebook contacts[TOTAL_CONTACTS])
 	std::cout << '|' << "index     " << '|' << "first name" << '|' << "last name "
 	<< '|' << "nickname  " << '|' << std::endl;
 	put_bufline();
-	for (int i = 0; !contacts[i].isEmpty(); i++) {
+	for (int i = 0; i < TOTAL_CONTACTS && contacts[i].isEmpty() == false; i++) {
 		put_elem_row(contacts, i);
 		put_bufline();
 	}
@@ -100,6 +100,10 @@ void	search_phonebook(Phonebook contacts[TOTAL_CONTACTS])
 	int order;
 
 	put_phonebook_table(contacts);
+	if (contacts[0].isEmpty()) {
+		std::cout << "There is no entry yet." << std::endl;
+		return ;
+	}
 	std::cout << "Plz put the index you want to know in detail." << std::endl;
 	while (true) {
 		std::cout << "index> ";
