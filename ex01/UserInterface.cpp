@@ -71,14 +71,26 @@ void	UserInterface::put_bufline(void)
 	<< std::endl;
 }
 
+void	UserInterface::put_each_elem(std::string str)
+{
+	if (str.length() <= 10) {
+		std::cout << std::left << std::setw(10) << str << '|';
+	}
+	else {
+		std::cout << str.substr(0, 9) << '.' << '|';
+	}
+}
+
 void	UserInterface::put_elem_row(Phonebook contact[TOTAL_CONTACTS], int index)
 {
-	std::cout << '|' << std::left << std::setw(10) << index << '|'
-	<< std::left << std::setw(10) << contact[index].getStrData(FIRST_NAME) << '|'
-	<< std::left << std::setw(10) << contact[index].getStrData(LAST_NAME) << '|'
-	<< std::left << std::setw(10) << contact[index].getStrData(NICK_NAME) << '|' << std::endl;
-	// << contact[index].getStrData()
-	(void)contact;
+	std::cout << '|' << std::left << std::setw(10) << index << '|';
+	put_each_elem(contact[index].getStrData(FIRST_NAME));
+	put_each_elem(contact[index].getStrData(LAST_NAME));
+	put_each_elem(contact[index].getStrData(NICK_NAME));
+	std::cout << std::endl;
+	// << std::left << std::setw(10) << contact[index].getStrData(FIRST_NAME) << '|'
+	// << std::left << std::setw(10) << contact[index].getStrData(LAST_NAME) << '|'
+	// << std::left << std::setw(10) << contact[index].getStrData(NICK_NAME) << '|' << std::endl;
 }
 
 void	UserInterface::put_phonebook_table(Phonebook contacts[TOTAL_CONTACTS])
