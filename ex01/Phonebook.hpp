@@ -32,7 +32,6 @@ const std::string contact_str[TOTAL_DATA] = {
 class		Phonebook
 {
 	private:
-		int			_index;
 		bool		_is_empty;
 		int			_birthday_year;
 		int			_birthday_month;
@@ -42,7 +41,6 @@ class		Phonebook
 
 	public:
 		bool			isEmpty(void);
-		int				getIndex(void);
 
 		std::string		getStrData(int i);
 		std::string		getPhoneNumber(void);

@@ -19,8 +19,6 @@ Phonebook::~Phonebook(void) { return ;}
 
 bool			Phonebook::isEmpty(void) { return _is_empty;}
 
-int				Phonebook::getIndex(void) { return _index; }
-
 std::string		Phonebook::getStrData(int i) { return string_data[i]; }
 std::string		Phonebook::getPhoneNumber(void) { return _phone_number; }
 int				Phonebook::getBirthdayYear(void) { return _birthday_year; }
