@@ -13,7 +13,6 @@ Phonebook::Phonebook(void)
 		string_data[i] = "";
 	}
 	_phone_number = "";
-	_email_address = "";
 }
 
 Phonebook::~Phonebook(void) { return ;}
@@ -24,7 +23,6 @@ int				Phonebook::getIndex(void) { return _index; }
 
 std::string		Phonebook::getStrData(int i) { return string_data[i]; }
 std::string		Phonebook::getPhoneNumber(void) { return _phone_number; }
-std::string		Phonebook::getEmailAddress(void) { return _email_address; }
 int				Phonebook::getBirthdayYear(void) { return _birthday_year; }
 int				Phonebook::getBirthdayMonth(void) { return _birthday_month; }
 int				Phonebook::getBirthdayDate(void) { return _birthday_date; }
@@ -32,21 +30,22 @@ int				Phonebook::getBirthdayDate(void) { return _birthday_date; }
 void	Phonebook::setIsEmpty(bool tf) { this->_is_empty = tf; }
 void	Phonebook::setStrData(int i, std::string data) { this->string_data[i] = data; }
 
-static int is_email_valid(std::string email_address)
-{
-	const std::regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
-	return (std::regex_match(email_address, pattern));
-}
+// static int is_email_valid(std::string email_address)
+// {
+// 	const std::regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
+// 	return (std::regex_match(email_address, pattern));
+// }
+// regex はC11なので使えない
 
-int		Phonebook::setEmailAddress(std::string email_address)
-{
-	if (email_address[0] == '\0')
-		;
-	else if (!is_email_valid(email_address))
-		return (false);
-	this->_email_address = email_address;
-	return (true);
-}
+// int		Phonebook::setEmailAddress(std::string email_address)
+// {
+// 	if (email_address[0] == '\0')
+// 		;
+// 	else if (!is_email_valid(email_address))
+// 		return (false);
+// 	this->_email_address = email_address;
+// 	return (true);
+// }
 
 static int is_digitstr(std::string number)
 {

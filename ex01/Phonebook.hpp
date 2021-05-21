@@ -8,7 +8,7 @@ enum : int {
 	NICK_NAME,
 	LOGIN,
 	POSTAL_ADDRESS,
-	// EMAIL_ADDRESS,
+	EMAIL_ADDRESS,
 	// PHONE_NUMBER,
 	FAVORITE_MEAL,
 	UNDERWEAR_COLOR,
@@ -22,7 +22,7 @@ const std::string contact_str[TOTAL_DATA] = {
 	"nick name",
 	"login",
 	"postal address",
-	// "email address",
+	"email address",
 	// "phone number",
 	"favorite meal",
 	"underwear color",
@@ -39,7 +39,6 @@ class		Phonebook
 		int			_birthday_date;
 		std::string string_data[TOTAL_DATA];
 		std::string	_phone_number;
-		std::string	_email_address;
 
 	public:
 		bool			isEmpty(void);
@@ -47,14 +46,12 @@ class		Phonebook
 
 		std::string		getStrData(int i);
 		std::string		getPhoneNumber(void);
-		std::string		getEmailAddress(void);
 		int				getBirthdayYear(void);
 		int				getBirthdayMonth(void);
 		int				getBirthdayDate(void);
 
 		void		setIsEmpty(bool tf);
 		void		setStrData(int i, std::string data);
-		int			setEmailAddress(std::string email_address);
 		int			setPhoneNumber(std::string phone_number);
 		int			setBirthdayYear(std::string year);
 		int			setBirthdayMonth(std::string month);
