@@ -6,10 +6,35 @@
 
 class ZombieEvent
 {
+	private:
+		enum : int {
+			alice,
+			bob,
+			carol,
+			dave,
+			ellen,
+			frank,
+			TOTAL
+		};
+		const std::string zombie_names[TOTAL] = {
+			"alice",
+			"bob",
+			"carol",
+			"dave",
+			"ellen",
+			"frank",
+			// nullptr
+		};
+
+		std::string		type;
+
 	public:
-		void		setZombieType();
+		ZombieEvent(void);
+		~ZombieEvent(void);
+
+		void		setZombieType(std::string type);
 		Zombie*		newZombie(std::string name);
-		void		randomChump();
+		Zombie*		randomChump(void);
 };
 
 #endif
