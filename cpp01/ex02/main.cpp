@@ -16,11 +16,10 @@ int		main(void)
 	second.setZombieType("dry");
 
 	zombies[0] = first.newZombie("foo");
+	zombies[0]->announce();
 	zombies[1] = second.newZombie("bar");
+	zombies[1]->announce();
 	for (int i = 2; i < NUM; i++) {
 		zombies[i] = second.randomChump();
-	}
-	for (int i = 0; i < NUM; i++) {
-		zombies[i]->announce();
 	}
 }

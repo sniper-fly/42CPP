@@ -27,5 +27,6 @@ Zombie*		ZombieEvent::randomChump(void)
 	Zombie* newbie;
 
 	newbie = new Zombie(this->type, zombie_names[rand() % TOTAL]) ;
+	newbie->announce();
 	return (newbie);
 }
