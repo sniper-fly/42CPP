@@ -1,25 +1,27 @@
 #include "Zombie.hpp"
 #include "ZombieEvent.hpp"
+#include <iostream>
 
 //setZombieTypeでzombieクラスのタイプの設定, newで作って返す
 //randomChump, で適当な名前のzombieを作って返す
 
-
 int		main(void)
 {
-	const int	NUM = 5;
-	Zombie		*zombies[NUM];
-	ZombieEvent	first;
-	ZombieEvent	second;
+	const int	NUM = 4;
+	Zombie		*heap_zombies[NUM];
+	Zombie		stack_zombie("wet", "stackman");
+	ZombieEvent	wwz;
 
-	first.setZombieType("wet");
-	second.setZombieType("dry");
+	stack_zombie.announce();
 
-	zombies[0] = first.newZombie("foo");
-	zombies[0]->announce();
-	zombies[1] = second.newZombie("bar");
-	zombies[1]->announce();
-	for (int i = 2; i < NUM; i++) {
-		zombies[i] = second.randomChump();
+	std::cout << "------------------------------" << std::endl;
+
+	wwz.setZombieType("dry");
+	for (int i = 0; i < NUM; i++) {
+		heap_zombies[i] = wwz.randomChump();
 	}
+	for (int i = 0; i < NUM; i++) {
+		delete heap_zombies[i];
+	}
+	std::cout << "------------------------------" << std::endl;
 }
