@@ -8,15 +8,13 @@ class ZombieHorde
 {
 	public:
 		void	announce(void);
-		ZombieHorde(void);
-		ZombieHorde(int N, std::string name);
+		ZombieHorde(int N, std::string type);
 		~ZombieHorde(void);
 
 	private:
 		// void	setZombieType(std::string type);
 		Zombie		*horde;
 		int			N;
-		std::string	type;
 
 		enum : int {
 			alice,
