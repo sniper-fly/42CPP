@@ -9,7 +9,8 @@ class HumanB
 		void	attack(void);
 		HumanB(std::string name);
 	private:
-		Weapon	buki;
+		Weapon			buki;
+		std::string		name;
 };
 
 #endif

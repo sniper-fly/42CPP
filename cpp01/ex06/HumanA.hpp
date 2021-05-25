@@ -10,7 +10,8 @@ class HumanA
 		void	attack(void);
 		HumanA(std::string name, Weapon buki);
 	private:
-		Weapon	buki;
+		Weapon			buki;
+		std::string		name;
 };
 
 #endif
