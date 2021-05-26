@@ -1,14 +1,22 @@
 
-NAME = replace
+NAME = ft_sed
 SRCS = main.cpp Replace.cpp
+OBJS = $(SRCS:%.cpp=%.o)
 
-compile:
-	clang++ -Wall -Wextra -Werror -g -o $(NAME) $(SRCS)
+CXX = clang++
+CXXFLAGS = -Wall -Wextra -Werror
 
-exec:
-	./$(NAME)
+all: $(NAME)
 
-test: compile exec clean
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	rm -rf $(NAME)
+	rm -rf $(OBJS)
+
+fclean: clean
+	rm -rf $(NAME) *.replace
+
+re: fclean all
+
+.PHONY: all clean fclean re
