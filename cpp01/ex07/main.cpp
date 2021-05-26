@@ -11,7 +11,7 @@ int		main(int argc, char **argv)
 	};
 
 	if (argc != 4) {
-		std::cout << "Error: Invalid number of argument";
+		std::cout << "Error: Invalid number of argument" << std::endl;
 		return (1);
 	}
 	Replace::ft_sed(argv[FILE_NAME], argv[REPLACED], argv[DEST]);
