@@ -6,27 +6,37 @@
 void Replace::ft_sed(std::string file_name, std::string replaced, std::string dest)
 {
 	std::ifstream ifs = get_inputstream(file_name);
-	std::string ofile;
+	std::ofstream ofs = get_outputstream(file_name);
 	std::string buf;
 
 	while (true) {
 		std::getline(ifs, buf);
 		buf = replace_str(buf, replaced, dest);
-		ofile += buf;
+		ofs << buf;
 		if (ifs.eof()) {
 			break;
 		}
-		ofile += "\n";
+		ofs << std::endl;
 	}
-	std::cout << ofile;
+}
+
+std::ofstream Replace::get_outputstream(std::string file_name)
+{
+	file_name += ".replace";
+	std::ofstream ofs(file_name);
+	if (!ofs) {
+		std::cout << "Error: Failed to create the file" << file_name << std::endl;
+		exit(2);
+	}
+	return (ofs);
 }
 
 std::ifstream Replace::get_inputstream(std::string file_name)
 {
 	std::ifstream ifs(file_name);
 	if (!ifs) {
-		std::cout << "Error: Failed to open the file" << std::endl;
-		exit (1);
+		std::cout << "Error: Failed to open the file:" << file_name << std::endl;
+		exit (3);
 	}
 	return (ifs);
 }
