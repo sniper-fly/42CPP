@@ -18,6 +18,8 @@ void Replace::ft_sed(std::string file_name, std::string replaced, std::string de
 		}
 		ofs << std::endl;
 	}
+	ifs.close();
+	ofs.close();
 }
 
 std::ofstream Replace::get_outputstream(std::string file_name)
