@@ -46,13 +46,14 @@ std::ifstream Replace::get_inputstream(std::string file_name)
 std::string Replace::replace_str(std::string buf, std::string replaced, std::string dest)
 {
 	std::string::size_type pos;
-	std::string::size_type len = replaced.length();
+	std::string::size_type replen = replaced.length();
+	std::string::size_type dstlen = dest.length();
 
 	pos = buf.find(replaced);
 	while (pos != std::string::npos) {
-		buf.erase(pos, len);
-		buf.insert(pos, dest);
-		pos = buf.find(replaced);
+		buf.replace(pos, replen, dest);
+		pos += dstlen;
+		pos = buf.find(replaced, pos);
 	}
 	return (buf);
 }

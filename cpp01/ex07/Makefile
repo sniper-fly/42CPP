@@ -4,7 +4,8 @@ SRCS = main.cpp Replace.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror
+# CXX = g++
+CXXFLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 
