@@ -8,7 +8,7 @@ public:
 	Fixed(Fixed &num);
 	~Fixed(void);
 
-	Fixed	operator=(Fixed num);
+	Fixed	&operator=(Fixed &num);
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 

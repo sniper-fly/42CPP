@@ -4,6 +4,7 @@
 Fixed::Fixed(void)
 {
 	std::cout << "Default constructor called" << std::endl;
+	this->num = 0;
 }
 
 Fixed::Fixed(Fixed &num)
@@ -17,7 +18,7 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed	Fixed::operator=(Fixed num)
+Fixed&	Fixed::operator=(Fixed &num)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	this->num = num.getRawBits();
