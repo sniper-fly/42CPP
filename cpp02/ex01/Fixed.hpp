@@ -8,11 +8,12 @@ public:
 	Fixed(void);
 	Fixed(const Fixed &value); //なぜかconstじゃないと合わない
 	Fixed(int value);
-	Fixed(double value);
+	Fixed(float value);
 	~Fixed(void);
 
 	Fixed	&operator=(const Fixed &value);
 	int		toInt(void) const;
+	float	toFloat(void) const;
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 
