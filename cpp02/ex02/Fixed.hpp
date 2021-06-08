@@ -12,6 +12,26 @@ public:
 	~Fixed(void);
 
 	Fixed	&operator=(const Fixed &value);
+	Fixed	&operator++(void);
+	Fixed	operator++(int); //後置
+	Fixed	&operator--(void);
+	Fixed	operator--(int); //後置
+	Fixed	operator+(Fixed ope);
+	Fixed	operator-(Fixed ope);
+	Fixed	operator*(Fixed ope);
+	Fixed	operator/(Fixed ope);
+	bool	operator>(Fixed ope);
+	bool	operator<(Fixed ope);
+	bool	operator>=(Fixed ope);
+	bool	operator<=(Fixed ope);
+	bool	operator==(Fixed ope);
+	bool	operator!=(Fixed ope);
+
+	static Fixed &min(Fixed &a, Fixed &b);
+	static Fixed &max(Fixed &a, Fixed &b);
+	static Fixed const &min(const Fixed &a, const Fixed &b);
+	static Fixed const &max(const Fixed &a, const Fixed &b);
+
 	int		toInt(void) const;
 	float	toFloat(void) const;
 	int		getRawBits(void) const;
