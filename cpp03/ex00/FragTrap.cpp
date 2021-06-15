@@ -2,6 +2,20 @@
 #include <string>
 #include <iostream>
 
+FragTrap::FragTrap(void)
+{
+    name = "lelouch";
+    std::cout << "Utteiinoha, utareru kakugo no aru yatsu dake da." << std::endl;
+    hp = 100;
+    max_hp = 100;
+    energy_point = 100;
+    max_ep = 100;
+    level = 1;
+    melee_attack_damage = 30;
+    ranged_attack_damage = 20;
+    armor_damage_reduction = 5;
+}
+
 FragTrap::FragTrap(std::string name) : name(name)
 {
     std::cout << "Utteiinoha, utareru kakugo no aru yatsu dake da." << std::endl;
@@ -18,6 +32,21 @@ FragTrap::FragTrap(std::string name) : name(name)
 FragTrap::~FragTrap(void)
 {
     std::cout << "I will destroy the world and make it a new one." << std::endl;
+}
+
+FragTrap&   FragTrap::operator=(const FragTrap& other)
+{
+    name = other.name;
+    std::cout << "Utteiinoha, utareru kakugo no aru yatsu dake da." << std::endl;
+    hp = other.hp;
+    max_hp = other.max_hp;
+    energy_point = other.energy_point;
+    max_ep = other.max_ep;
+    level = other.level;
+    melee_attack_damage = other.melee_attack_damage;
+    ranged_attack_damage = other.ranged_attack_damage;
+    armor_damage_reduction = other.armor_damage_reduction;
+    return (*this);
 }
 
 void        FragTrap::rangedAttack(std::string const &target)

@@ -5,8 +5,11 @@
 class FragTrap
 {
 public:
+    FragTrap(void);
     FragTrap(std::string name);
     ~FragTrap(void);
+    FragTrap& operator=(const FragTrap& other);
+
     void rangedAttack(std::string const &target);
     void meleeAttack(std::string const &target);
     void takeDamage(unsigned int amount);
