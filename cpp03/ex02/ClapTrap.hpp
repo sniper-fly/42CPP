@@ -3,23 +3,26 @@
 
 // 共通する関数や変数を抜き出す done
 // mainを作る done
-// 変更点のみ関数を作る
+// 変更点のみ関数を作る done
+// .cppの実装
 // 動作確認
 #include <string>
 
 class ClapTrap
 {
-public:
+private:
     ClapTrap(void);
     ClapTrap(const std::string& name);
     ClapTrap(const ClapTrap& other);
+
+public:
     virtual ~ClapTrap(void);
     ClapTrap& operator=(const ClapTrap& other);
 
     virtual void rangedAttack(std::string const &target);
     virtual void meleeAttack(std::string const &target);
-    virtual void takeDamage(unsigned int amount);
-    virtual void beRepaired(unsigned int amount);
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
 
 protected:
     int hp;
