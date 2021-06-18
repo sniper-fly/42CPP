@@ -102,3 +102,8 @@ void        ClapTrap::beRepaired(unsigned int amount)
     std::cout << name << " was healed " << amount
         << " points of hp!" << std::endl;
 }
+
+void        ClapTrap::show_hp(void)
+{
+    std::cout << name << "'s hp is " <<  hp << " now." << std::endl;
+}
