@@ -4,6 +4,7 @@
 
 ClapTrap::ClapTrap(void)
 {
+    std::cout << "ClapTrap constructor" << std::endl;
     name = "ClapTrap";
     hp = 0;
     max_hp = 0;
@@ -17,6 +18,7 @@ ClapTrap::ClapTrap(void)
 
 ClapTrap::ClapTrap(const std::string& name) : name(name)
 {
+    std::cout << "ClapTrap constructor" << std::endl;
     hp = 0;
     max_hp = 0;
     energy_point = 0;
@@ -30,7 +32,7 @@ ClapTrap::ClapTrap(const std::string& name) : name(name)
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
     name = other.name;
-    std::cout << "ClapTrap" << std::endl;
+    std::cout << "ClapTrap constructor" << std::endl;
     hp = other.hp;
     max_hp = other.max_hp;
     energy_point = other.energy_point;
@@ -43,7 +45,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 
 ClapTrap::~ClapTrap(void)
 {
-    // std::cout << "ClapTrap Destructor" << std::endl;
+    std::cout << "ClapTrap Destructor" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)

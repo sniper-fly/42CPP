@@ -2,23 +2,8 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap(void)
+ScavTrap::ScavTrap(const std::string& name): ClapTrap(name)
 {
-    name = "bondrewd";
-    std::cout << "Oyaoyaoyaoyaoya, oyaoyaoyaoyaoya" << std::endl;
-    hp = 100;
-    max_hp = 100;
-    energy_point = 50;
-    max_ep = 50;
-    level = 1;
-    melee_attack_damage = 20;
-    ranged_attack_damage = 15;
-    armor_damage_reduction = 3;
-}
-
-ScavTrap::ScavTrap(const std::string& name)
-{
-    this->name = name;
     std::cout << "Oyaoyaoyaoyaoya, oyaoyaoyaoyaoya" << std::endl;
     hp = 100;
     max_hp = 100;
