@@ -10,15 +10,15 @@ int	main(void)
     ozen.rangedAttack("bondrewd");
     bondrewd.takeDamage(20);
     bondrewd.meleeAttack("ozen");
-    ozen.takeDamage(20);
+    ozen.takeDamage(15);
 
     ozen.meleeAttack("bondrewd");
-    bondrewd.takeDamage(30);
+    bondrewd.takeDamage(20);
     bondrewd.rangedAttack("ozen");
     ozen.takeDamage(15);
 
     ozen.meleeAttack("bondrewd");
-    bondrewd.takeDamage(30);
+    bondrewd.takeDamage(20);
     bondrewd.rangedAttack("ozen");
     ozen.takeDamage(15);
 

@@ -10,12 +10,10 @@
 
 class ClapTrap
 {
-private:
+public:
     ClapTrap(void);
     ClapTrap(const std::string& name);
     ClapTrap(const ClapTrap& other);
-
-public:
     virtual ~ClapTrap(void);
     ClapTrap& operator=(const ClapTrap& other);
 
@@ -34,6 +32,6 @@ protected:
     int melee_attack_damage;
     int ranged_attack_damage;
     int armor_damage_reduction;
-}
+};
 
 #endif

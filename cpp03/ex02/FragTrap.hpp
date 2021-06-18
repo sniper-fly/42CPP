@@ -13,6 +13,8 @@ public:
     ~FragTrap(void);
     FragTrap& operator=(const FragTrap& other);
 
+    void rangedAttack(std::string const &target);
+    void meleeAttack(std::string const &target);
     void vaulthunter_dot_exe(std::string const & target);
 private:
     const std::string quotes[5] = {

@@ -13,6 +13,8 @@ public:
     ~ScavTrap(void);
     ScavTrap& operator=(const ScavTrap& other);
 
+    void rangedAttack(std::string const &target);
+    void meleeAttack(std::string const &target);
     void challengeNewcomer(void);
 private:
     const std::string challenges[5] = {
