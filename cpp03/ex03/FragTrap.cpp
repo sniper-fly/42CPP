@@ -2,23 +2,9 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap(void)
+FragTrap::FragTrap(const std::string& name):
+    ClapTrap(name)
 {
-    name = "lelouch";
-    std::cout << "Utteiinoha, utareru kakugo no aru yatsu dake da." << std::endl;
-    hp = 100;
-    max_hp = 100;
-    energy_point = 100;
-    max_ep = 100;
-    level = 1;
-    melee_attack_damage = 30;
-    ranged_attack_damage = 20;
-    armor_damage_reduction = 5;
-}
-
-FragTrap::FragTrap(const std::string& name)
-{
-    this->name = name;
     std::cout << "Utteiinoha, utareru kakugo no aru yatsu dake da." << std::endl;
     hp = 100;
     max_hp = 100;
