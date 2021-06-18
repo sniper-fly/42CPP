@@ -105,3 +105,8 @@ void        FragTrap::vaulthunter_dot_exe(std::string const & target)
     std::string attack = quotes[rand() % 5];
     std::cout << name << " uses his " << attack << " on " << target << std::endl;
 }
+
+void        FragTrap::show_hp(void)
+{
+    std::cout << name << "'s hp is " <<  hp << " now." << std::endl;
+}

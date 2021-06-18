@@ -16,6 +16,7 @@ public:
     void meleeAttack(std::string const &target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
+    void show_hp(void);
 
 private:
     int hp;

@@ -89,3 +89,8 @@ void        ScavTrap::challengeNewcomer(void)
 {
     std::cout << "BDRD-TP " << name << " use " << challenges[rand() % 5] << std::endl;
 }
+
+void        ScavTrap::show_hp(void)
+{
+    std::cout << name << "'s hp is " <<  hp << " now." << std::endl;
+}

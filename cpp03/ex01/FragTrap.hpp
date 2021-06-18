@@ -15,6 +15,7 @@ public:
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
     void vaulthunter_dot_exe(std::string const & target);
+    void show_hp(void);
 
 private:
     int hp;
