@@ -21,11 +21,15 @@ int	main(void)
     bondrewd.takeDamage(20);
     bondrewd.rangedAttack("ozen");
     ozen.takeDamage(15);
+    ozen.show_hp();
+    bondrewd.show_hp();
 
     ozen.meleeAttack("bondrewd");
     bondrewd.takeDamage(100);
     bondrewd.rangedAttack("ozen");
     ozen.takeDamage(100);
+    ozen.show_hp();
+    bondrewd.show_hp();
 
     ozen.beRepaired(30);
     bondrewd.beRepaired(40);
