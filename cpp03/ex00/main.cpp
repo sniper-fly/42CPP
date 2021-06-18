@@ -12,8 +12,13 @@ int	main(void)
     frag.takeDamage(30);
     frag.takeDamage(30);
     frag.takeDamage(30);
+    frag.show_hp();
+    frag.takeDamage(30);
+    frag.show_hp();
     frag.beRepaired(60);
     frag.takeDamage(30);
+
+    frag.show_hp();
 
     frag.vaulthunter_dot_exe("Jack");
     frag.vaulthunter_dot_exe("Jack");
