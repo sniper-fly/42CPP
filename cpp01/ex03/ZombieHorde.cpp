@@ -32,4 +32,4 @@ std::string ZombieHorde::zombie_names[TOTAL] = {
     "ellen",
     "frank",
     // nullptr
-}
+};
