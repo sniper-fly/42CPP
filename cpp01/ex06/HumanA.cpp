@@ -5,7 +5,7 @@
 
 void	HumanA::attack(void)
 {
-	std::cout << name << "attacks with his " << buki.getType() << std::endl;
+	std::cout << name << " attacks with his " << buki.getType() << std::endl;
 }
 
 HumanA::HumanA(std::string name, Weapon &buki) : buki(buki), name(name) 
