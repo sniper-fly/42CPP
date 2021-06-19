@@ -16,16 +16,7 @@ class ZombieEvent
 			frank,
 			TOTAL
 		};
-		const std::string zombie_names[TOTAL] = {
-			"alice",
-			"bob",
-			"carol",
-			"dave",
-			"ellen",
-			"frank",
-			// nullptr
-		};
-
+		static std::string zombie_names[TOTAL];
 		std::string		type;
 
 	public:

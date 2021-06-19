@@ -23,3 +23,13 @@ ZombieHorde::~ZombieHorde(void)
 {
 	delete[] this->horde;
 }
+
+std::string ZombieHorde::zombie_names[TOTAL] = {
+    "alice",
+    "bob",
+    "carol",
+    "dave",
+    "ellen",
+    "frank",
+    // nullptr
+}

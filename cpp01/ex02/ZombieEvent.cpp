@@ -14,6 +14,16 @@ void		ZombieEvent::setZombieType(std::string type)
 	this->type = type;
 }
 
+std::string ZombieEvent::zombie_names[TOTAL] = {
+    "alice",
+    "bob",
+    "carol",
+    "dave",
+    "ellen",
+    "frank",
+    // nullptr
+};
+
 Zombie*		ZombieEvent::newZombie(std::string name)
 {
 	Zombie* new_zombie;
