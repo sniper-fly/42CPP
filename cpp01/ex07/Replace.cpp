@@ -5,8 +5,8 @@
 
 void Replace::ft_sed(std::string file_name, std::string replaced, std::string dest)
 {
-	std::ifstream ifs = get_inputstream(file_name);
-	std::ofstream ofs = get_outputstream(file_name);
+	std::ifstream ifs(get_inputstream(file_name));
+	std::ofstream ofs(get_outputstream(file_name));
 	std::string buf;
 
 	while (true) {
