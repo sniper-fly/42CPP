@@ -26,13 +26,7 @@ public:
     // void ninjaShoebox(const FragTrap& other);
     // void ninjaShoebox(const ScavTrap& other);
 private:
-    const std::string quotes[5] = {
-        "haruha-ru infiga-ru",
-        "asufaru leaf",
-        "augu aruhazard",
-        "barark saika",
-        "forarz zola"
-    };
+    static const std::string quotes[5];
 };
 
 #endif

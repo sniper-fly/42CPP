@@ -49,6 +49,14 @@ NinjaTrap&   NinjaTrap::operator=(const NinjaTrap& other)
     return (*this);
 }
 
+const std::string NinjaTrap::quotes[5] = {
+    "haruha-ru infiga-ru",
+    "asufaru leaf",
+    "augu aruhazard",
+    "barark saika",
+    "forarz zola"
+};
+
 void        NinjaTrap::rangedAttack(std::string const &target)
 {
     std::cout << "NINJ-TP " << name << " attacks " << target

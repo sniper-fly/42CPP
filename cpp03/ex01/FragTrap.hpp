@@ -27,13 +27,7 @@ private:
     int melee_attack_damage;
     int ranged_attack_damage;
     int armor_damage_reduction;
-    const std::string quotes[5] = {
-        "lelouch vi britannia ga meijiru.",
-        "Zeroooooohhhh!!",
-        "Yes, my load.",
-        "Yes, your highness.",
-        "Yes, your majesty."
-    };
+    static const std::string quotes[5];
 };
 
 #endif

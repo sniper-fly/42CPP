@@ -48,6 +48,14 @@ ScavTrap&   ScavTrap::operator=(const ScavTrap& other)
     return (*this);
 }
 
+std::string const ScavTrap::challenges[5] = {
+    "Shaker",
+    "Forkaless",
+    "Suparagumosu",
+    "Gang way",
+    "Sennin Kusabi"
+};
+
 void        ScavTrap::rangedAttack(std::string const &target)
 {
     std::cout << "BDRD-TP " << name << " attacks " << target

@@ -34,6 +34,14 @@ FragTrap::~FragTrap(void)
     std::cout << "I will destroy the world and make it a new one." << std::endl;
 }
 
+std::string const FragTrap::quotes[5] = {
+    "lelouch vi britannia ga meijiru.",
+    "Zeroooooohhhh!!",
+    "Yes, my load.",
+    "Yes, your highness.",
+    "Yes, your majesty."
+};
+
 FragTrap&   FragTrap::operator=(const FragTrap& other)
 {
     name = other.name;

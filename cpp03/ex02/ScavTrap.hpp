@@ -17,13 +17,7 @@ public:
     void meleeAttack(std::string const &target);
     void challengeNewcomer(void);
 private:
-    const std::string challenges[5] = {
-        "Shaker",
-        "Forkaless",
-        "Suparagumosu",
-        "Gang way",
-        "Sennin Kusabi"
-    };
+    static const std::string challenges[5];
 };
 
 #endif

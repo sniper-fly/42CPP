@@ -36,6 +36,14 @@ FragTrap&   FragTrap::operator=(const FragTrap& other)
     return (*this);
 }
 
+std::string const FragTrap::quotes[5] = {
+    "lelouch vi britannia ga meijiru.",
+    "Zeroooooohhhh!!",
+    "Yes, my load.",
+    "Yes, your highness.",
+    "Yes, your majesty."
+};
+
 void        FragTrap::rangedAttack(std::string const &target)
 {
     std::cout << "FR4G-TP " << name << " attacks " << target

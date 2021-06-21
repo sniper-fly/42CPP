@@ -28,13 +28,8 @@ private:
     int melee_attack_damage;
     int ranged_attack_damage;
     int armor_damage_reduction;
-    const std::string challenges[5] = {
-        "Shaker",
-        "Forkaless",
-        "Suparagumosu",
-        "Gang way",
-        "Sennin Kusabi"
-    };
+
+    static const std::string challenges[5];
 };
 
 #endif
