@@ -34,6 +34,14 @@ FragTrap::~FragTrap(void)
     std::cout << "I will destroy the world and make it a new one." << std::endl;
 }
 
+std::string const FragTrap::quotes[5] = {
+    "lelouch vi britannia ga meijiru.",
+    "Zeroooooohhhh!!",
+    "Yes, my load.",
+    "Yes, your highness.",
+    "Yes, your majesty."
+};
+
 FragTrap&   FragTrap::operator=(const FragTrap& other)
 {
     name = other.name;
@@ -48,14 +56,6 @@ FragTrap&   FragTrap::operator=(const FragTrap& other)
     armor_damage_reduction = other.armor_damage_reduction;
     return (*this);
 }
-
-std::string const FragTrap::quotes[5] = {
-    "lelouch vi britannia ga meijiru.",
-    "Zeroooooohhhh!!",
-    "Yes, my load.",
-    "Yes, your highness.",
-    "Yes, your majesty."
-};
 
 void        FragTrap::rangedAttack(std::string const &target)
 {
@@ -100,15 +100,12 @@ void        FragTrap::beRepaired(unsigned int amount)
 
 void        FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
-    (void)target;
-    // 25エナジーポイントを消費する
-    energy_point -= 25;
-    // エナジー切れを通知する エナジーがあれば攻撃
-    if (energy_point < 0) {
-        energy_point = 0;
+    if (energy_point < 25) {
         std::cout << "[Error]: not enough energy." << std::endl;
         return ;
     }
+    // 25エナジーポイントを消費する
+    energy_point -= 25;
     // ランダムで5つ以上の選択肢から攻撃を選ぶ
     std::string attack = quotes[rand() % 5];
     std::cout << name << " uses his " << attack << " on " << target << std::endl;

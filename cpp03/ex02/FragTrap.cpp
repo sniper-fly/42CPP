@@ -56,17 +56,14 @@ void        FragTrap::meleeAttack(std::string const &target)
     << " at melee, causing " << ranged_attack_damage << " points of damage!" << std::endl;
 }
 
-void        FragTrap::vaulthunter_dot_exe(std::string const &target)
+void        FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
-    (void)target;
-    // 25エナジーポイントを消費する
-    energy_point -= 25;
-    // エナジー切れを通知する エナジーがあれば攻撃
-    if (energy_point < 0) {
-        energy_point = 0;
+    if (energy_point < 25) {
         std::cout << "[Error]: not enough energy." << std::endl;
         return ;
     }
+    // 25エナジーポイントを消費する
+    energy_point -= 25;
     // ランダムで5つ以上の選択肢から攻撃を選ぶ
     std::string attack = quotes[rand() % 5];
     std::cout << name << " uses his " << attack << " on " << target << std::endl;

@@ -23,4 +23,6 @@ int	main(void)
     frag.vaulthunter_dot_exe("Jack");
     frag.vaulthunter_dot_exe("Jack");
     frag.vaulthunter_dot_exe("Jack");
+    frag.vaulthunter_dot_exe("Jack");
+    frag.vaulthunter_dot_exe("Jack");
 }
