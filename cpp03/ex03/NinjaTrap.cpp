@@ -2,6 +2,7 @@
 #include <iostream>
 
 NinjaTrap::NinjaTrap(void)
+    :ClapTrap()
 {
     name = "kumogakure saizo";
     std::cout << "Dron!" << std::endl;
@@ -16,8 +17,8 @@ NinjaTrap::NinjaTrap(void)
 }
 
 NinjaTrap::NinjaTrap(const std::string& name)
+    :ClapTrap(name)
 {
-    this->name = name;
     std::cout << "Dron!" << std::endl;
     hp = 60;
     max_hp = 60;
@@ -69,22 +70,62 @@ void        NinjaTrap::meleeAttack(std::string const &target)
     << " at melee, causing " << ranged_attack_damage << " points of damage!" << std::endl;
 }
 
-// void ninjaShoebox(const NinjaTrap& other)
-// {
+void        NinjaTrap::ninjaShoebox(NinjaTrap& other)
+{
+    const int ep_cost = 20;
+    if (energy_point < ep_cost) {
+        std::cout << "[Error]: not enough energy." << std::endl;
+        return ;
+    }
+    // 25エナジーポイントを消費する
+    energy_point -= ep_cost;
+    // ランダムで5つ以上の選択肢から攻撃を選ぶ
+    std::cout << name << " uses his " << "Shuriken" << " on " << other.getName()
+    << std::endl;
+    other.takeDamage(20 + (rand() % 10));
+}
 
-// }
+void         NinjaTrap::ninjaShoebox(ClapTrap& other)
+{
+    const int ep_cost = 20;
+    if (energy_point < ep_cost) {
+        std::cout << "[Error]: not enough energy." << std::endl;
+        return ;
+    }
+    // 25エナジーポイントを消費する
+    energy_point -= ep_cost;
+    // ランダムで5つ以上の選択肢から攻撃を選ぶ
+    std::cout << name << " uses his " << "Makibishi" << " on " << other.getName()
+    << std::endl;
+    other.takeDamage(20 + (rand() % 3));
+}
 
-// void ninjaShoebox(const ClapTrap& other)
-// {
+void NinjaTrap::ninjaShoebox(FragTrap& other)
+{
+    const int ep_cost = 20;
+    if (energy_point < ep_cost) {
+        std::cout << "[Error]: not enough energy." << std::endl;
+        return ;
+    }
+    // 25エナジーポイントを消費する
+    energy_point -= ep_cost;
+    // ランダムで5つ以上の選択肢から攻撃を選ぶ
+    std::cout << name << " uses his " << "katana" << " on " << other.getName()
+    << std::endl;
+    other.takeDamage(30 + (rand() % 3));
+}
 
-// }
-
-// void ninjaShoebox(const FragTrap& other)
-// {
-
-// }
-
-// void ninjaShoebox(const ScavTrap& other)
-// {
-
-// }
+void NinjaTrap::ninjaShoebox(ScavTrap& other)
+{
+    const int ep_cost = 20;
+    if (energy_point < ep_cost) {
+        std::cout << "[Error]: not enough energy." << std::endl;
+        return ;
+    }
+    // 25エナジーポイントを消費する
+    energy_point -= ep_cost;
+    // ランダムで5つ以上の選択肢から攻撃を選ぶ
+    std::cout << name << " uses his " << "kunai" << " on " << other.getName()
+    << std::endl;
+    other.takeDamage(25 + (rand() % 5));
+}

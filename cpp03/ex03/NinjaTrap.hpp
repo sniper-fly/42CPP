@@ -21,10 +21,10 @@ public:
 
     void rangedAttack(std::string const &target);
     void meleeAttack(std::string const &target);
-    // void ninjaShoebox(const NinjaTrap& other);
-    // void ninjaShoebox(const ClapTrap& other);
-    // void ninjaShoebox(const FragTrap& other);
-    // void ninjaShoebox(const ScavTrap& other);
+    void ninjaShoebox(NinjaTrap& other);
+    void ninjaShoebox(ClapTrap& other);
+    void ninjaShoebox(FragTrap& other);
+    void ninjaShoebox(ScavTrap& other);
 private:
     static const std::string quotes[5];
 };
