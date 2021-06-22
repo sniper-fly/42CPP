@@ -107,3 +107,8 @@ void        ClapTrap::show_hp(void)
 {
     std::cout << name << "'s hp is " <<  hp << " now." << std::endl;
 }
+
+std::string ClapTrap::getName(void) const
+{
+    return (name);
+}
