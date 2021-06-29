@@ -7,7 +7,7 @@ class ClapTrap
 {
 public:
     ClapTrap(std::string name);
-    ~ClapTrap();
+    virtual ~ClapTrap();
 
     void attack(std::string const &target);
     void takeDamage(unsigned int amount);
