@@ -1,48 +1,23 @@
-#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
+#include <iostream>
 
 int	main(void)
 {
-    std::srand(time(0));
-    FragTrap ozen("ozen");
-    ScavTrap bondrewd("bondrewd");
+    ClapTrap luca("luca");
+    ScavTrap chris("chris");
 
-    ozen.rangedAttack("bondrewd");
-    bondrewd.takeDamage(20);
-    bondrewd.meleeAttack("ozen");
-    ozen.takeDamage(20);
-
-    ozen.meleeAttack("bondrewd");
-    bondrewd.takeDamage(30);
-    bondrewd.rangedAttack("ozen");
-    ozen.takeDamage(15);
-
-    ozen.meleeAttack("bondrewd");
-    bondrewd.takeDamage(30);
-    bondrewd.rangedAttack("ozen");
-    ozen.takeDamage(15);
-    ozen.show_hp();
-    bondrewd.show_hp();
-
-    ozen.meleeAttack("bondrewd");
-    bondrewd.takeDamage(100);
-    bondrewd.rangedAttack("ozen");
-    ozen.takeDamage(100);
-    ozen.show_hp();
-    bondrewd.show_hp();
-
-    ozen.beRepaired(30);
-    bondrewd.beRepaired(40);
-    ozen.show_hp();
-    bondrewd.show_hp();
-
-    ozen.vaulthunter_dot_exe("bondrewd");
-    bondrewd.challengeNewcomer();
-
-    ozen.vaulthunter_dot_exe("bondrewd");
-    bondrewd.challengeNewcomer();
-
-    ozen.vaulthunter_dot_exe("bondrewd");
-    bondrewd.challengeNewcomer();
+    luca.showHp();
+    chris.showHp();
+    luca.attack("chris");
+    chris.takeDamage(0);
+    chris.attack("luca");
+    luca.takeDamage(20);
+    luca.showHp();
+    chris.showHp();
+    luca.beRepaired(100);
+    chris.beRepaired(100);
+    luca.showHp();
+    chris.showHp();
     return (0);
 }
