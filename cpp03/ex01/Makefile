@@ -1,5 +1,5 @@
 NAME = a.out
-SRCS = main.cpp FragTrap.cpp ScavTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 CXX = clang++
