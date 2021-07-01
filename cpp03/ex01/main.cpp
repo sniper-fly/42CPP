@@ -19,5 +19,7 @@ int	main(void)
     chris.beRepaired(100);
     luca.showHp();
     chris.showHp();
+
+    chris.guardGate();
     return (0);
 }
