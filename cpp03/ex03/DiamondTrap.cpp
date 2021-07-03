@@ -5,8 +5,10 @@
 #include <iostream>
 
 DiamondTrap::DiamondTrap(std::string name):
-    ClapTrap(name), ScavTrap(name), FragTrap(name)
+    ClapTrap(name), FragTrap(name), ScavTrap(name)
 {
+    this->name = name;
+    std::cout << "Daga Otoko da." << std::endl;
     ClapTrap::name = this->name + "_clap_name";
     this->hitpoints = FragTrap::hitpoints;
     this->energy_points = ScavTrap::energy_points;

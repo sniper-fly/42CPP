@@ -12,6 +12,8 @@ public:
     virtual ~DiamondTrap();
 
     void whoAmI();
+private:
+    std::string name;
 };
 
 #endif
