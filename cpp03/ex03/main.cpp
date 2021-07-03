@@ -1,65 +1,41 @@
-#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include "ClapTrap.hpp"
-#include "NinjaTrap.hpp"
+#include <iostream>
 
 int	main(void)
 {
-    std::srand(time(0));
-    FragTrap frag("sayaka");
-    ScavTrap scav("kyoko");
-    ClapTrap clap("mami");
-    NinjaTrap ninja1("homura");
-    NinjaTrap ninja2("madoka");
+    ClapTrap luca("luca");
+    std::cout << "---------------" << std::endl;
+    ScavTrap chris("chris");
+    std::cout << "---------------" << std::endl;
+    FragTrap faris("faris");
+    std::cout << "---------------" << std::endl;
 
-    ninja1.ninjaShoebox(frag);
-    ninja1.ninjaShoebox(scav);
-    ninja1.ninjaShoebox(clap);
-    ninja1.ninjaShoebox(ninja2);
-    
+    luca.showHp();
+    chris.showHp();
+    faris.showHp();
+    luca.attack("chris");
+    chris.takeDamage(0);
+    chris.attack("luca");
+    luca.takeDamage(20);
+    faris.attack("chris");
+    faris.takeDamage(30);
+    std::cout << "---------------" << std::endl;
+
+    luca.showHp();
+    chris.showHp();
+    faris.showHp();
+    luca.beRepaired(100);
+    chris.beRepaired(100);
+    faris.beRepaired(100);
+    luca.showHp();
+    chris.showHp();
+    faris.showHp();
+    std::cout << "---------------" << std::endl;
+
+    chris.guardGate();
+    faris.highFivesGuys();
+    std::cout << "---------------" << std::endl;
     return (0);
 }
-
-// int	main(void)
-// {
-//     std::srand(time(0));
-//     FragTrap ozen("ozen");
-//     ScavTrap bondrewd("bondrewd");
-
-//     ozen.rangedAttack("bondrewd");
-//     bondrewd.takeDamage(20);
-//     bondrewd.meleeAttack("ozen");
-//     ozen.takeDamage(15);
-
-//     ozen.meleeAttack("bondrewd");
-//     bondrewd.takeDamage(20);
-//     bondrewd.rangedAttack("ozen");
-//     ozen.takeDamage(15);
-
-//     ozen.meleeAttack("bondrewd");
-//     bondrewd.takeDamage(20);
-//     bondrewd.rangedAttack("ozen");
-//     ozen.takeDamage(15);
-//     ozen.show_hp();
-//     bondrewd.show_hp();
-
-//     ozen.meleeAttack("bondrewd");
-//     bondrewd.takeDamage(100);
-//     bondrewd.rangedAttack("ozen");
-//     ozen.takeDamage(100);
-//     ozen.show_hp();
-//     bondrewd.show_hp();
-
-//     ozen.beRepaired(30);
-//     bondrewd.beRepaired(40);
-
-//     ozen.vaulthunter_dot_exe("bondrewd");
-//     bondrewd.challengeNewcomer();
-
-//     ozen.vaulthunter_dot_exe("bondrewd");
-//     bondrewd.challengeNewcomer();
-
-//     ozen.vaulthunter_dot_exe("bondrewd");
-//     bondrewd.challengeNewcomer();
-//     return (0);
-// }
