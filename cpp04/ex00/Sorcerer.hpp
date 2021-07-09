@@ -17,8 +17,8 @@ public:
 
     Sorcerer& operator=(const Sorcerer& other);
     void polymorph(const Victim &victim);
-    std::string nameGetter();
-    std::string titleGetter();
+    std::string getName();
+    std::string getTitle();
 
 private:
     std::string name;
