@@ -10,12 +10,13 @@ int main(void)
 	Victim jim("Jimmy");
     std::cout << "--------------------" << std::endl;
 
-    jim.getPolymorphed();
+    // jim.getPolymorphed();
     std::cout << "--------------------" << std::endl;
-	// Peon joe("Joe");
-    // std::cout << "--------------------" << std::endl;
-	// std::cout << robert << jim << joe;
+	Peon joe("Joe");
+    std::cout << "--------------------" << std::endl;
+	std::cout << robert << jim << joe;
 	// robert.polymorph(jim);
 	// robert.polymorph(joe);
+    std::cout << "--------------------" << std::endl;
 	return 0;
 }

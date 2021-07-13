@@ -3,6 +3,8 @@
 
 const std::string Victim::animal = "cute little sheep";
 
+Victim::Victim() {}
+
 Victim::Victim(const std::string& name):
     name(name)
 {
@@ -30,6 +32,11 @@ void Victim::getPolymorphed()
     << std::endl;
 }
 
-std::string Victim::getName() {return this->name;}
+std::string Victim::getName() const {return this->name;}
 
-
+std::ostream& operator<<(std::ostream &out, const Victim& other)
+{
+    out << "I'm " << other.getName() << " and I like otters!"
+    <<  std::endl;
+    return out;
+}

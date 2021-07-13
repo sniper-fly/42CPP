@@ -10,7 +10,7 @@ private:
     Peon();
 public:
     Peon(const std::string& name);
-    Peon(const Peon* other);
+    Peon(const Peon& other);
     ~Peon();
     Peon& operator=(const Peon& other);
 

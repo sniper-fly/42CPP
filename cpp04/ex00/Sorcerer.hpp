@@ -17,14 +17,14 @@ public:
 
     Sorcerer& operator=(const Sorcerer& other);
     void polymorph(const Victim &victim);
-    std::string getName();
-    std::string getTitle();
+    std::string getName() const;
+    std::string getTitle() const;
 
 private:
     std::string name;
     std::string title;
 };
 
-std::ostream& operator<<(std::ostream &out, const Sorcerer &fixed);
+std::ostream& operator<<(std::ostream &out, const Sorcerer& other);
 
 #endif

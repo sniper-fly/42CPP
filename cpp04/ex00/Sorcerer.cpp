@@ -32,3 +32,19 @@ Sorcerer& Sorcerer::operator=(const Sorcerer& other)
     copy(other);
     return (*this);
 }
+
+// void        Sorcerer::polymorph(const Victim &victim)
+// {
+
+// }
+
+std::string Sorcerer::getName() const { return name; }
+std::string Sorcerer::getTitle() const { return title; }
+
+std::ostream& operator<<(std::ostream &out, const Sorcerer& other)
+{
+    out << "I am " << other.getName() << ", "
+    << other.getTitle() << ", and I like ponies!"
+    << std::endl;
+    return out;
+}

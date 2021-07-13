@@ -14,10 +14,12 @@ public:
     Victim& operator=(const Victim& other);
 
     virtual void getPolymorphed();
-    std::string getName();
+    std::string getName() const;
 protected:
     std::string name;
     static const std::string animal; 
 };
+
+std::ostream& operator<<(std::ostream &out, const Victim& other);
 
 #endif
