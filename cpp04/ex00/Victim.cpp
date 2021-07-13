@@ -26,7 +26,7 @@ Victim& Victim::operator=(const Victim& other)
     return (*this);
 }
 
-void Victim::getPolymorphed()
+void Victim::getPolymorphed() const
 {
     std::cout << name << " has been turned into a " << animal << "!"
     << std::endl;

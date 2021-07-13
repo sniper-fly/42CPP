@@ -16,7 +16,7 @@ public:
     virtual ~Sorcerer();
 
     Sorcerer& operator=(const Sorcerer& other);
-    void polymorph(const Victim &victim);
+    void polymorph(const Victim &victim) const;
     std::string getName() const;
     std::string getTitle() const;
 

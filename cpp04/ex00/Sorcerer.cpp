@@ -33,10 +33,10 @@ Sorcerer& Sorcerer::operator=(const Sorcerer& other)
     return (*this);
 }
 
-// void        Sorcerer::polymorph(const Victim &victim)
-// {
-
-// }
+void        Sorcerer::polymorph(const Victim &victim) const
+{
+    victim.getPolymorphed();
+}
 
 std::string Sorcerer::getName() const { return name; }
 std::string Sorcerer::getTitle() const { return title; }
