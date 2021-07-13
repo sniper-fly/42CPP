@@ -13,10 +13,11 @@ public:
     virtual ~Victim();
     Victim& operator=(const Victim& other);
 
-    virtual void getPolymorphed() const;
+    virtual void getPolymorphed();
     std::string getName();
 protected:
     std::string name;
+    static const std::string animal; 
 };
 
 #endif

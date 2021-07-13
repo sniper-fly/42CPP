@@ -3,7 +3,9 @@
 
 // Sorcerer::Sorcerer() { }
 
-Sorcerer::Sorcerer(const std::string& name, const std::string& title)
+Sorcerer::Sorcerer(const std::string& name, const std::string& title):
+    name(name),
+    title(title)
 {
     std::cout << name << ", " << title << ", is born!" << std::endl;
 }
