@@ -5,16 +5,13 @@
 
 int main(void)
 {
-	Sorcerer robert("Robert", "the Magnificent");
-    std::cout << "--------------------" << std::endl;
-	Victim jim("Jimmy");
-    std::cout << "--------------------" << std::endl;
+    Sorcerer robert("Robert", "the Magnificent");
 
-    // jim.getPolymorphed();
-    std::cout << "--------------------" << std::endl;
-	Peon joe("Joe");
-    std::cout << "--------------------" << std::endl;
+    Victim jim("Jimmy");
+    Peon joe("Joe");
+
 	std::cout << robert << jim << joe;
+
 	// robert.polymorph(jim);
 	// robert.polymorph(joe);
     std::cout << "--------------------" << std::endl;
