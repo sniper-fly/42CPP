@@ -13,7 +13,7 @@ public:
     virtual ~AWeapon();
 
     AWeapon& operator=(const AWeapon& other);
-    std::string& const getName() const;
+    std::string& getName();
     int getAPCost() const;
     int getDamage() const;
     virtual void attack() const = 0;
