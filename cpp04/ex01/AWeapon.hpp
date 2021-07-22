@@ -8,7 +8,7 @@ class AWeapon
 protected:
     AWeapon();
 public:
-    AWeapon(std::string const & name, int apcost, int damage);
+    AWeapon(std::string const & name, int ap_cost, int damage);
     AWeapon(const AWeapon& other);
     virtual ~AWeapon();
 
@@ -19,7 +19,7 @@ public:
     virtual void attack() const = 0;
 protected:
     std::string name;
-    int ap;
+    int ap_cost;
     int damagePoints;
 };
 
