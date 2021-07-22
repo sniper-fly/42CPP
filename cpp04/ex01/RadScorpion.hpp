@@ -7,9 +7,9 @@ class RadScorpion : public Enemy
 {
 public:
     RadScorpion();
-    RadScorpion(RadScorpion& const other);
+    RadScorpion(RadScorpion& other);
     virtual ~RadScorpion();
-    RadScorpion&    operator=(RadScorpion& const other);
+    RadScorpion&    operator=(RadScorpion& other);
     
     void            takeDamage(int);
 };
