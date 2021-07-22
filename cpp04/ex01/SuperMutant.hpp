@@ -7,9 +7,9 @@ class SuperMutant : public Enemy
 {
 public:
     SuperMutant();
-    SuperMutant(SuperMutant& const other);
+    SuperMutant(SuperMutant& other);
     virtual ~SuperMutant();
-    SuperMutant&    operator=(SuperMutant& const other);
+    SuperMutant&    operator=(SuperMutant& other);
     
     void            takeDamage(int);
 };
