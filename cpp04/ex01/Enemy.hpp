@@ -2,6 +2,7 @@
 #define ENEMY_HPP
 
 #include <string>
+#include <iostream>
 class Enemy
 {
 public:
