@@ -6,22 +6,24 @@
 #include "RadScorpion.hpp"
 #include "SuperMutant.hpp"
 
-/*
 int main()
 {
-    Character me("hoge");
-    Enemy en(100, "type");
-    me.recoverAP();
-    std::cout << me << std::endl;
-    me.attack(&en);
-    Character me2(me);
-    me2.getName();
-    me2.recoverAP();
-    std::cout << me;
-    std::cout << me2;
-}
-*/
+    Character* me = new Character("me");
+    Enemy* sm = new SuperMutant();
+    AWeapon* pr = new PlasmaRifle();
 
+    me->attack(sm);
+    std::cout << "AP is now " << me->getAP() << std::endl;
+    me->equip(pr);
+    me->attack(sm);
+    me->attack(sm);
+    std::cout << "AP is now " << me->getAP() << std::endl;
+    me->recoverAP();
+    std::cout << "AP recovered." << std::endl;
+    std::cout << "AP is now " << me->getAP() << std::endl;
+}
+
+/*
 int main()
 {
     Character* me = new Character("me");
@@ -46,5 +48,11 @@ int main()
     me->attack(b);
     std::cout << *me;
 
+    delete me;
+    delete pr;
+    delete pf;
     return 0;
 }
+*/
+
+
