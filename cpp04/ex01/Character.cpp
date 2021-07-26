@@ -49,7 +49,11 @@ void            Character::attack(Enemy* en)
     action_point -= weapon->getAPCost();
     std::cout << name << " attacks " << en->getType() << " with a "
     << weapon->getName() << std::endl;
+    weapon->attack();
     en->takeDamage(weapon->getDamage());
+    if (en->getHP() == 0) {
+        delete en;
+    }
 }
 
 std::string     Character::getName() const { return name; }
