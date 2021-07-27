@@ -1,5 +1,5 @@
 NAME = a.out
-SRCS = main.cpp AWeapon.cpp Character.cpp Enemy.cpp PlasmaRifle.cpp PowerFist.cpp RadScorpion.cpp SuperMutant.cpp
+SRCS = main.cpp AWeapon.cpp Character.cpp Enemy.cpp PlasmaRifle.cpp PowerFist.cpp RadScorpion.cpp SuperMutant.cpp Bondrewd.cpp Excalibur.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 CXX = clang++

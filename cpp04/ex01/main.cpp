@@ -5,7 +5,10 @@
 #include "PowerFist.hpp"
 #include "RadScorpion.hpp"
 #include "SuperMutant.hpp"
+#include "Excalibur.hpp"
+#include "Bondrewd.hpp"
 
+/*
 int main()
 {
     Character* me = new Character("me");
@@ -21,9 +24,27 @@ int main()
     me->recoverAP();
     std::cout << "AP recovered." << std::endl;
     std::cout << "AP is now " << me->getAP() << std::endl;
-}
 
-/*
+    AWeapon* seiken = new Excalibur();
+    Enemy* bon = new Bondrewd();
+
+    me->equip(seiken);
+    me->attack(bon);
+    me->attack(bon);
+    me->recoverAP();
+    me->recoverAP();
+    me->recoverAP();
+    me->recoverAP();
+    std::cout << "AP recovered." << std::endl;
+    me->attack(bon);
+
+    delete me;
+    delete sm;
+    delete pr;
+    delete seiken;
+}
+*/
+
 int main()
 {
     Character* me = new Character("me");
@@ -53,6 +74,3 @@ int main()
     delete pf;
     return 0;
 }
-*/
-
-
