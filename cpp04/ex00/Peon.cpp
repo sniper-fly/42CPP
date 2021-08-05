@@ -1,6 +1,8 @@
 #include "Peon.hpp"
 #include <iostream>
 
+const std::string Peon::animal = "pink pony";
+
 Peon::Peon() {}
 
 Peon::Peon(const std::string& name):
@@ -16,7 +18,17 @@ Peon::~Peon()
     std::cout << "Bleurak..." << std::endl;
 }
 
-void Peon::getPolymorphed() {}
+Peon& Peon::operator=(const Peon &other)
+{
+    name = other.name;
+    return *this;
+}
+
+void    Peon::getPolymorphed() const
+{
+    std::cout << name << " has been turned into a " << animal << "!"
+    << std::endl;
+}
 
 std::ostream& operator<<(std::ostream &out, const Peon& other)
 {

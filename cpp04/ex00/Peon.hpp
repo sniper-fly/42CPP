@@ -14,7 +14,10 @@ public:
     virtual ~Peon();
     Peon& operator=(const Peon& other);
 
-    void getPolymorphed();
+    void getPolymorphed() const;
+
+private:
+    static const std::string animal; 
 };
 
 std::ostream &operator<<(std::ostream &out, Peon const &ref);
