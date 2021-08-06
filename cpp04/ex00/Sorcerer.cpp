@@ -1,7 +1,7 @@
 #include "Sorcerer.hpp"
 #include <iostream>
 
-// Sorcerer::Sorcerer() { }
+Sorcerer::Sorcerer() { }
 
 Sorcerer::Sorcerer(const std::string& name, const std::string& title):
     name(name),
