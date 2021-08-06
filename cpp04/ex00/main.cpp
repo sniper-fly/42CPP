@@ -2,6 +2,7 @@
 #include "Victim.hpp"
 #include "Peon.hpp"
 #include <iostream>
+#include "Subaru.hpp"
 
 int main(void)
 {
@@ -17,3 +18,16 @@ int main(void)
 
     return 0;
 }
+
+// int main(void)
+// {
+//     Sorcerer ekidona("ekidona", "Witch");
+//     Subaru subaru("subaru");
+
+//     std::cout << "------------------" << std::endl;
+//     std::cout << subaru << std::endl;
+//     ekidona.polymorph(subaru);
+
+//     std::cout << "------------------" << std::endl;
+//     return 0;
+// }
