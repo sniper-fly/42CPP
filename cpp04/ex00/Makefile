@@ -1,5 +1,5 @@
 NAME = a.out
-SRCS = Sorcerer.cpp main.cpp Peon.cpp Victim.cpp
+SRCS = Sorcerer.cpp main.cpp Peon.cpp Victim.cpp Subaru.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 CXX = clang++
