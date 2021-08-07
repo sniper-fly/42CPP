@@ -4,14 +4,7 @@
 
 class ISquad
 {
-private:
-
 public:
-    ISquad();
-    virtual ~ISquad();
-    ISquad(ISquad const &other);
-    ISquad &operator=(ISquad const &other);
-
     virtual int             getCount() const = 0;
     virtual ISpaceMarine*   getUnit(int) const = 0;
     virtual int             push(ISpaceMarine*) = 0;
