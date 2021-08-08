@@ -1,5 +1,10 @@
 NAME = a.out
-SRCS = AssaultTerminator.cpp Squad.cpp TacticalMarine.cpp
+SRCS = main.cpp
+# SRCS += AssaultTerminator.cpp
+# SRCS += Squad.cpp
+SRCS += TacticalMarine.cpp
+
+
 OBJS = $(SRCS:%.cpp=%.o)
 
 CXX = clang++

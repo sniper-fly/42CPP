@@ -5,6 +5,7 @@
 #include "Squad.hpp"
 #include <iostream>
 
+/*
 int main()
 {
     ISpaceMarine* bob = new TacticalMarine;
@@ -23,3 +24,20 @@ int main()
     delete vlc;
     return 0;
 }
+*/
+
+/* //TacticalMarine test
+int main()
+{
+    ISpaceMarine* test = new TacticalMarine;
+    std::cout << "----------------" << std::endl;
+    test->battleCry();
+    std::cout << "----------------" << std::endl;
+    test->rangedAttack();
+    std::cout << "----------------" << std::endl;
+    test->meleeAttack();
+    std::cout << "----------------" << std::endl;
+    delete test;
+    std::cout << "----------------" << std::endl;
+}
+*/
