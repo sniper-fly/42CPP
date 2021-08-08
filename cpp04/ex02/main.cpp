@@ -26,18 +26,40 @@ int main()
 }
 */
 
-/* //TacticalMarine test
+//TacticalMarine AssaultTerminator test
+/*
 int main()
 {
     ISpaceMarine* test = new TacticalMarine;
     std::cout << "----------------" << std::endl;
     test->battleCry();
-    std::cout << "----------------" << std::endl;
     test->rangedAttack();
-    std::cout << "----------------" << std::endl;
     test->meleeAttack();
+    std::cout << "----------------" << std::endl;
+    ISpaceMarine* clone = test->clone();
+    clone->battleCry();
+    clone->rangedAttack();
+    clone->meleeAttack();
     std::cout << "----------------" << std::endl;
     delete test;
     std::cout << "----------------" << std::endl;
+    std::cout << "----------------" << std::endl;
+
+    ISpaceMarine* assalt = new AssaultTerminator;
+    std::cout << "----------------" << std::endl;
+    assalt->battleCry();
+    assalt->rangedAttack();
+    assalt->meleeAttack();
+    std::cout << "----------------" << std::endl;
+    ISpaceMarine* clone2 = assalt->clone();
+    clone2->battleCry();
+    clone2->rangedAttack();
+    clone2->meleeAttack();
+    std::cout << "----------------" << std::endl;
+    delete assalt;
+    std::cout << "----------------" << std::endl;
+    std::cout << "----------------" << std::endl;
+    delete clone;
+    delete clone2;
 }
 */

@@ -1,6 +1,6 @@
 NAME = a.out
 SRCS = main.cpp
-# SRCS += AssaultTerminator.cpp
+SRCS += AssaultTerminator.cpp
 # SRCS += Squad.cpp
 SRCS += TacticalMarine.cpp
 
