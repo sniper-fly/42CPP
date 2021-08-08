@@ -5,12 +5,13 @@
 #include "Squad.hpp"
 #include <iostream>
 
-/*
+// /*
 int main()
 {
     ISpaceMarine* bob = new TacticalMarine;
     ISpaceMarine* jim = new AssaultTerminator;
     ISquad* vlc = new Squad;
+
     vlc->push(bob);
     vlc->push(jim);
 
@@ -24,7 +25,7 @@ int main()
     delete vlc;
     return 0;
 }
-*/
+// */
 
 //TacticalMarine AssaultTerminator test
 /*

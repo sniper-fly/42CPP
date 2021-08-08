@@ -1,7 +1,7 @@
 NAME = a.out
 SRCS = main.cpp
 SRCS += AssaultTerminator.cpp
-# SRCS += Squad.cpp
+SRCS += Squad.cpp
 SRCS += TacticalMarine.cpp
 
 
@@ -9,7 +9,7 @@ OBJS = $(SRCS:%.cpp=%.o)
 
 CXX = clang++
 # CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -g
+CXXFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 all: $(NAME)
 
