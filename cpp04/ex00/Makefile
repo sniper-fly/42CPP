@@ -2,9 +2,9 @@ NAME = a.out
 SRCS = main.cpp
 SRCS += Animal.cpp
 SRCS += Cat.cpp
-# SRCS += Dog.cpp
-# SRCS += WrongAnimal.cpp
-# SRCS += WrongCat.cpp
+SRCS += Dog.cpp
+SRCS += WrongAnimal.cpp
+SRCS += WrongCat.cpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 
