@@ -1,12 +1,9 @@
 #include "Animal.hpp"
+#include <iostream>
 
-Animal::Animal()
-{
-}
+Animal::Animal() { }
 
-Animal::~Animal()
-{
-}
+Animal::~Animal() { }
 
 Animal::Animal(Animal const &other)
 {
@@ -17,6 +14,14 @@ Animal &Animal::operator=(Animal const &other)
 {
     if (this != &other)
     {
+        type = other.type;
     }
     return *this;
 }
+
+void            Animal::makeSound()
+{
+    std::cout << "Ahhhhhhhhhhhhhh" << std::endl;
+}
+
+std::string     Animal::getType() { return type; }
