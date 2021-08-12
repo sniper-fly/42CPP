@@ -1,15 +1,17 @@
 #ifndef WRONGCAT_HPP
 # define WRONGCAT_HPP
+# include <string>
+# include "WrongAnimal.hpp"
 
-class WrongCat
+class WrongCat : public WrongAnimal
 {
-private:
-
 public:
     WrongCat();
     virtual ~WrongCat();
     WrongCat(WrongCat const &other);
     WrongCat &operator=(WrongCat const &other);
+
+    void            makeSound() const;
 };
 
 #endif

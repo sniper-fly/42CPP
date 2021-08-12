@@ -22,7 +22,7 @@ int main()
 /*
 int main()
 {
-
+    const WrongAnimal* wrong_cat = new WrongCat();
+    wrong_cat->makeSound();
 }
-
 */
