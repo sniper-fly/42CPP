@@ -8,8 +8,14 @@ SRCS += TacticalMarine.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 CXX = clang++
-# CXX = g++
-CXXFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+ifdef debug
+CXX = g++
+endif
+
+CXXFLAGS = -Wall -Wextra -Werror -g
+ifdef sanitize
+CXXFLAGS += -fsanitize=address
+endif
 
 all: $(NAME)
 

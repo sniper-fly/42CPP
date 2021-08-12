@@ -26,8 +26,14 @@ Squad &Squad::operator=(Squad const &other)
     //TODO: ここの例外についても吟味すべき
     if (this != &other)
     {
+        for (int i = 0; i < units_count; ++i) {
+            delete units[i];
+        }
+        delete[] units;
+        units = NULL;
+        this->units_count = 0;
         for (int i = 0; i < other.getCount(); ++i) {
-            (this->units)[i] = other.getUnit(i);
+            this->push(other.getUnit(i)->clone());
         }
     }
     return *this;

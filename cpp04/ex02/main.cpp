@@ -64,3 +64,44 @@ int main()
     delete clone2;
 }
 */
+
+/*
+// operator= test
+
+int main(void)
+{
+    ISpaceMarine* apple = new AssaultTerminator;
+    ISpaceMarine* banana = new TacticalMarine;
+    ISpaceMarine* carrot = new AssaultTerminator;
+    Squad group;
+    Squad cpy;
+
+    group.push(apple);
+    group.push(banana);
+    group.push(carrot);
+
+    std::cout << "-----operator=-----" << std::endl;
+    cpy = group;
+    std::cout << "-----operator= 2---" << std::endl;
+
+    Squad cpy2;
+    std::cout << "--init dada--------" << std::endl;
+    ISpaceMarine* dada = new TacticalMarine;
+    std::cout << "-------------------" << std::endl;
+    cpy2.push(dada);
+    std::cout << "---assignation-----" << std::endl;
+    cpy2 = cpy;
+    std::cout << "-------------------" << std::endl;
+    std::cout << "---iterate it!-----" << std::endl;
+
+    for (int i = 0; i < group.getCount(); ++i) {
+        ISpaceMarine* gr1 = group.getUnit(i);
+        ISpaceMarine* gr2 = cpy.getUnit(i);
+
+        std::cout << i << ")gr1 pointer 0x" << (long)gr1 << std::endl;
+        std::cout << i << ")gr2 pointer 0x" << (long)gr2 << std::endl;
+    }
+    std::cout << "-------------------" << std::endl;
+}
+
+*/
