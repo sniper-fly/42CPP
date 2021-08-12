@@ -1,7 +1,7 @@
 #include "Animal.hpp"
 #include <iostream>
 
-Animal::Animal() { }
+Animal::Animal(): type("Animal") { }
 
 Animal::~Animal() { }
 
