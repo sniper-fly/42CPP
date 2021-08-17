@@ -1,7 +1,10 @@
 #include "Animal.hpp"
 #include <iostream>
 
-Animal::Animal(): type("Animal") { }
+Animal::Animal(): type("Animal")
+{
+    Brain* brain = new Brain;
+}
 
 Animal::~Animal() { }
 
@@ -19,12 +22,17 @@ Animal &Animal::operator=(Animal const &other)
     return *this;
 }
 
-void            Animal::makeSound() const
+void                Animal::makeSound() const
 {
     std::cout << "Ahhhhhhhhhhhhhh" << std::endl;
 }
 
-std::string     Animal::getType() const
+std::string const   &Animal::getType() const
 {
     return type;
+}
+
+Brain               *Animal::getBrain() const
+{
+    return Animal::brain;
 }
