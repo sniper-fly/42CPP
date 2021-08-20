@@ -12,7 +12,11 @@ public:
 
     std::string const &get_idea(int) const;
 private:
-    std::string  ideas[100];
+    static const int            IDEA_CT = 100;
+    static const int            EX_CT = 50;
+    static const std::string    examples[EX_CT];
+
+    std::string                 ideas[IDEA_CT];
 };
 
 #endif
