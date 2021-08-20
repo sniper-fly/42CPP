@@ -3,7 +3,6 @@
 
 Animal::Animal(): type("Animal")
 {
-    Brain* brain = new Brain;
 }
 
 Animal::~Animal() { }
@@ -30,9 +29,4 @@ void                Animal::makeSound() const
 std::string const   &Animal::getType() const
 {
     return type;
-}
-
-Brain               *Animal::getBrain() const
-{
-    return Animal::brain;
 }
