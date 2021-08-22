@@ -9,14 +9,41 @@
 int main()
 {
     srand(time(0));
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+    Animal* animals[10];
 
-    std::cout << (long)i << std::endl;
-    std::cout << (long)j << std::endl;
+    int i;
+    for (i = 0; i < 5; ++i) {
+        animals[i] = new Dog();
+    }
+    std::cout << "----------------" << std::endl;
+    for (; i < 10; ++i) {
+        animals[i] = new Cat();
+    }
+    std::cout << "----------------" << std::endl;
+    for (i = 0; i < 10; ++i) {
+        animals[i]->makeSound();
+    }
+    std::cout << "----------------" << std::endl;
+    for (i = 0; i < 10; ++i) {
+        delete animals[i];
+    }
 
-    delete j;//should not create a leak
-    delete i;
+    std::cout << "----------------" << std::endl;
+
+    Cat cat;
+    Cat cat2;
+    cat2 = cat;
+    std::cout << "cat brain ideas : " << cat.getBrainIdea(0) << std::endl;
+    std::cout << "cat2 brain ideas : " << cat2.getBrainIdea(0) << std::endl;
+    // std::cout << "cat brain ideas address: " << &(cat.getBrainIdea(0)) << std::endl;
+    // std::cout << "cat2 brain ideas address: " << &(cat2.getBrainIdea(0)) << std::endl;
+
+    Dog dog;
+    // Dog dog2(dog);
+    std::cout << "dog brain ideas : " << dog.getBrainIdea(0) << std::endl;
+    // std::cout << "dog brain ideas : " << dog2.getBrainIdea(0) << std::endl;
+    // std::cout << "dog brain ideas address: " << &(dog.getBrainIdea(0)) << std::endl;
+    // std::cout << "dog brain ideas address: " << &(dog2.getBrainIdea(0)) << std::endl;
 }
 // */
 

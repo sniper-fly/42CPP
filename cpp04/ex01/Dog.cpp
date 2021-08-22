@@ -31,3 +31,8 @@ void    Dog::makeSound() const
 {
     std::cout << "Wan Wan" << std::endl;
 }
+
+std::string     Dog::getBrainIdea(int i) const
+{
+    return brain->get_idea(i);
+}
