@@ -4,12 +4,18 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
+#include <ctime>
+#include <cstdlib>
 
 // /*
 int main()
 {
+    srand(time(0));
     const Animal* j = new Dog();
     const Animal* i = new Cat();
+
+    std::cout << (long)i << std::endl;
+    std::cout << (long)j << std::endl;
 
     delete j;//should not create a leak
     delete i;
@@ -28,3 +34,7 @@ int main()
     wrong_cat->makeSound();
 }
 */
+
+//親クラスのprotected typeと子クラスのprotected typeは同じなのか？
+//同じ。
+//operator=は親クラスで定義したものが使われる あくまで、どの型がマッチするかが判定される
