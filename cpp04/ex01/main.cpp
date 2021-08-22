@@ -2,8 +2,6 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
-#include "WrongAnimal.hpp"
 #include <ctime>
 #include <cstdlib>
 
