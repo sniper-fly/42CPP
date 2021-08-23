@@ -35,8 +35,8 @@ int main()
     cat2 = cat;
     std::cout << "cat brain ideas : " << cat.getBrainIdea(0) << std::endl;
     std::cout << "cat2 brain ideas : " << cat2.getBrainIdea(0) << std::endl;
-    // std::cout << "cat brain ideas address: " << &(cat.getBrainIdea(0)) << std::endl;
-    // std::cout << "cat2 brain ideas address: " << &(cat2.getBrainIdea(0)) << std::endl;
+    std::cout << "cat brain ideas address: " << &(cat.getBrainIdea(0)) << std::endl;
+    std::cout << "cat2 brain ideas address: " << &(cat2.getBrainIdea(0)) << std::endl;
 
     Dog dog;
     // Dog dog2(dog);
