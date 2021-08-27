@@ -32,18 +32,45 @@ int main()
 
     Cat cat;
     Cat cat2;
+    std::cout << "cat brain idea : " << cat.getBrainIdea(0) << std::endl;
+    std::cout << "cat2 brain idea : " << cat2.getBrainIdea(0) << std::endl;
+    std::cout << "cat brain idea address: " << &(cat.getBrainIdea(0)) << std::endl;
+    std::cout << "cat2 brain idea address: " << &(cat2.getBrainIdea(0)) << std::endl;
     cat2 = cat;
-    std::cout << "cat brain ideas : " << cat.getBrainIdea(0) << std::endl;
-    std::cout << "cat2 brain ideas : " << cat2.getBrainIdea(0) << std::endl;
-    std::cout << "cat brain ideas address: " << &(cat.getBrainIdea(0)) << std::endl;
-    std::cout << "cat2 brain ideas address: " << &(cat2.getBrainIdea(0)) << std::endl;
+    std::cout << "--assigned--" << std::endl;
+    std::cout << "cat brain idea : " << cat.getBrainIdea(0) << std::endl;
+    std::cout << "cat2 brain idea : " << cat2.getBrainIdea(0) << std::endl;
+    std::cout << "cat brain idea address: " << &(cat.getBrainIdea(0)) << std::endl;
+    std::cout << "cat2 brain idea address: " << &(cat2.getBrainIdea(0)) << std::endl;
+
+    /* 冗長なのでコメントアウト
+    std::cout << "----------------" << std::endl;
+    Cat cat3(cat);
+    std::cout << "cat brain idea : " << cat.getBrainIdea(0) << std::endl;
+    std::cout << "cat3 brain idea : " << cat3.getBrainIdea(0) << std::endl;
+    std::cout << "cat brain idea address: " << &(cat.getBrainIdea(0)) << std::endl;
+    std::cout << "cat3 brain idea address: " << &(cat3.getBrainIdea(0)) << std::endl;
+    */
+
+    std::cout << "----------------" << std::endl;
 
     Dog dog;
-    // Dog dog2(dog);
-    std::cout << "dog brain ideas : " << dog.getBrainIdea(0) << std::endl;
-    // std::cout << "dog brain ideas : " << dog2.getBrainIdea(0) << std::endl;
-    // std::cout << "dog brain ideas address: " << &(dog.getBrainIdea(0)) << std::endl;
-    // std::cout << "dog brain ideas address: " << &(dog2.getBrainIdea(0)) << std::endl;
+    Dog dog2(dog);
+    std::cout << "dog brain idea : " << dog.getBrainIdea(0) << std::endl;
+    std::cout << "dog brain idea : " << dog2.getBrainIdea(0) << std::endl;
+    std::cout << "dog brain idea address: " << &(dog.getBrainIdea(0)) << std::endl;
+    std::cout << "dog brain idea address: " << &(dog2.getBrainIdea(0)) << std::endl;
+
+    /*
+    std::cout << "----------------" << std::endl;
+    Dog dog3 = dog;
+    std::cout << "dog brain idea : " << dog.getBrainIdea(0) << std::endl;
+    std::cout << "dog3 brain idea : " << dog3.getBrainIdea(0) << std::endl;
+    std::cout << "dog brain idea address: " << &(dog.getBrainIdea(0)) << std::endl;
+    std::cout << "dog3 brain idea address: " << &(dog3.getBrainIdea(0)) << std::endl;
+    */
+
+    std::cout << "----------------" << std::endl;
 }
 // */
 
@@ -51,6 +78,7 @@ int main()
 //コンストラクタとデストラクタで適当なアウトプット
 //コピーコンストラクタはディープコピーじゃないとダメ
 //mainでanimalの配列を作って半分はCat、半分はDog
+// const参照にするとテンポラリオブジェクトの寿命を伸ばせる
 
 /*
 int main()

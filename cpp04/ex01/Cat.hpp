@@ -13,8 +13,8 @@ public:
     Cat(Cat const &other);
     Cat &operator=(Cat const &other);
 
-    virtual void    makeSound() const;
-    std::string     getBrainIdea(int) const;
+    virtual void            makeSound() const;
+    std::string const       &getBrainIdea(int) const;
 };
 
 #endif

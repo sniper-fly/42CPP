@@ -32,7 +32,7 @@ void Cat::makeSound() const
     std::cout << "Meowwwww" << std::endl;
 }
 
-std::string     Cat::getBrainIdea(int i) const
+std::string const     &Cat::getBrainIdea(int i) const
 {
     return brain->get_idea(i);
 }
