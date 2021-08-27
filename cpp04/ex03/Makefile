@@ -1,6 +1,6 @@
 NAME = a.out
 SRCS = main.cpp
-SRCS += Amateria.cpp
+SRCS += AMateria.cpp
 SRCS += Character.cpp
 SRCS += Cure.cpp
 SRCS += Ice.cpp
