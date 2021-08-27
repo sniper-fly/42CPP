@@ -9,6 +9,7 @@
 int main()
 {
     srand(time(0));
+    // Animal test;
     Animal* animals[10];
 
     int i;
