@@ -1,10 +1,14 @@
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 # include "ICharacter.hpp"
+# include <string>
+# include "AMateria.hpp"
 
 class Character : public ICharacter
 {
 private:
+    std::string     name;
+    AMateria*       materias[4];
 
 public:
     Character();
