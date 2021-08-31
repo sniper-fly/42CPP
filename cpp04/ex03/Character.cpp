@@ -27,7 +27,9 @@ Character &Character::operator=(Character const &other)
         name = other.getName();
         for (int i = 0; i < 4; ++i) {
             delete materias[i];
-            materias[i] = other.materias[i]->clone();
+            if (other.materias[i]) {
+                materias[i] = other.materias[i]->clone();
+            }
         }
     }
     return *this;
