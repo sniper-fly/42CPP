@@ -20,6 +20,11 @@ Character::Character(Character const &other): Character()
     *this = other;
 }
 
+Character::Character(std::string const &name): Character()
+{
+    this->name = name;
+}
+
 Character &Character::operator=(Character const &other)
 {
     if (this != &other)

@@ -10,11 +10,13 @@ private:
     std::string     name;
     AMateria*       materias[4];
 
-public:
+private:
     Character();
+public:
     virtual ~Character();
     Character(Character const &other);
     Character &operator=(Character const &other);
+    Character(std::string const &name);
 
     virtual std::string const & getName() const;
     virtual void equip(AMateria* m);
