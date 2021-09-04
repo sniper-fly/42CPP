@@ -5,9 +5,10 @@
 
 class AMateria
 {
-private:
-    AMateria();
+protected:
+    std::string type;
 public:
+    AMateria();
     virtual ~AMateria();
     AMateria(AMateria const &other);
     AMateria &operator=(AMateria const &other);
