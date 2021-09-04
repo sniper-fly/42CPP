@@ -12,7 +12,7 @@ public:
     Cure(Cure const &other);
     Cure &operator=(Cure const &other);
 
-    virtual AMateria* clone() const = 0;
+    virtual AMateria* clone() const;
     virtual void use(ICharacter& target);
 };
 
