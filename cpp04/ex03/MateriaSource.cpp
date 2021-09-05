@@ -34,6 +34,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &other)
     return *this;
 }
 
+// mがなければ最大4つまで学習する
 void            MateriaSource::learnMateria(AMateria* m)
 {
     for (int i = 0; i < 4; ++i) {
@@ -45,6 +46,7 @@ void            MateriaSource::learnMateria(AMateria* m)
     std::cout << "full materias" << std::endl;
 }
 
+// typeに一致するmateriaを持っていたら、それをクローンして新しく作る
 AMateria*       MateriaSource::createMateria(std::string const & type)
 {
     for (int i = 0; i < 4; ++i) {
