@@ -1,7 +1,9 @@
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
-# include <string>
 # include "ICharacter.hpp"
+# include <string>
+
+class ICharacter;
 
 class AMateria
 {
