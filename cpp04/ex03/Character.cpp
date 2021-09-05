@@ -55,10 +55,14 @@ void                Character::equip(AMateria* m)
 
 void                Character::unequip(int idx)
 {
-    materias[idx] = NULL;
+    if (0 <= idx && idx <= 3) {
+        materias[idx] = NULL;
+    }
 }
 
 void                Character::use(int idx, ICharacter& target)
 {
-    materias[idx]->use(target);
+    if (0 <= idx && idx <= 3) {
+        materias[idx]->use(target);
+    }
 }
