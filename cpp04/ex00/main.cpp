@@ -16,6 +16,10 @@ int main()
     i->makeSound(); //will output the cat sound!
     j->makeSound();
     meta->makeSound();
+
+    delete meta;
+    delete j;
+    delete i;
 }
 // */
 
@@ -24,5 +28,6 @@ int main()
 {
     const WrongAnimal* wrong_cat = new WrongCat();
     wrong_cat->makeSound();
+    delete wrong_cat;
 }
 */
