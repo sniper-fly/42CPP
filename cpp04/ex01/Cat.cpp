@@ -14,7 +14,13 @@ Cat::~Cat()
     std::cout << "Cat was dead.." << std::endl;
 }
 
-Cat::Cat(Cat const &other):Cat() { *this = other; }
+Cat::Cat(Cat const &other)
+{
+    type = "Cat";
+    brain = new Brain;
+    std::cout << "New cat was born." << std::endl;
+    *this = other;
+}
 
 Cat &Cat::operator=(Cat const &other)
 {

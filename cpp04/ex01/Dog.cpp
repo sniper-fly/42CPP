@@ -14,7 +14,13 @@ Dog::~Dog()
     std::cout << "Dog was dead.." << std::endl;
 }
 
-Dog::Dog(Dog const &other):Dog() { *this = other; }
+Dog::Dog(Dog const &other)
+{
+    type = "Dog";
+    brain = new Brain;
+    std::cout << "New dog was born." << std::endl;
+    *this = other;
+}
 
 Dog &Dog::operator=(Dog const &other)
 {

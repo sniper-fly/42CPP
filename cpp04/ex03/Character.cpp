@@ -15,13 +15,19 @@ Character::~Character()
     }
 }
 
-Character::Character(Character const &other): Character()
+Character::Character(Character const &other)
 {
+    for (int i = 0; i < 4; ++i) {
+        materias[i] = NULL;
+    }
     *this = other;
 }
 
-Character::Character(std::string const &name): Character()
+Character::Character(std::string const &name)
 {
+    for (int i = 0; i < 4; ++i) {
+        materias[i] = NULL;
+    }
     this->name = name;
 }
 
