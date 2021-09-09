@@ -1,9 +1,15 @@
 #include "Animal.hpp"
 #include <iostream>
 
-Animal::Animal(): type("Animal") { }
+Animal::Animal(): type("Animal")
+{
+    std::cout << "Animal was born." << std::endl;
+}
 
-Animal::~Animal() { }
+Animal::~Animal()
+{
+    std::cout << type << " was dead." << std::endl;
+}
 
 Animal::Animal(Animal const &other)
 {

@@ -1,10 +1,15 @@
 #include "Cat.hpp"
 #include <iostream>
 
-Cat::Cat() { type = "Cat"; }
+Cat::Cat()
+{
+    std::cout << "Cat was born." << std::endl;
+    type = "Cat";
+}
 
 Cat::~Cat()
 {
+    std::cout << type << " was dead." << std::endl;
 }
 
 Cat::Cat(Cat const &other)

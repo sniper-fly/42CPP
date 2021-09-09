@@ -3,11 +3,13 @@
 
 Dog::Dog()
 {
+    std::cout << "Dog was born." << std::endl;
     type = "Dog";
 }
 
 Dog::~Dog()
 {
+    std::cout << type << " was dead." << std::endl;
 }
 
 Dog::Dog(Dog const &other)
