@@ -1,10 +1,5 @@
 NAME = a.out
-SRCS = main.cpp
-SRCS += AMateria.cpp
-SRCS += Character.cpp
-SRCS += Cure.cpp
-SRCS += Ice.cpp
-SRCS += MateriaSource.cpp
+SRCS = main.cpp Bureaucrat.cpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 
