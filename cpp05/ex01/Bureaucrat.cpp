@@ -43,6 +43,29 @@ void                    Bureaucrat::incrementGrade() { assign_grade(grade - 1); 
 
 void                    Bureaucrat::decrementGrade() { assign_grade(grade + 1); }
 
+void                    Bureaucrat::signForm(Form& form)
+{
+    if (form.getIsSigned()) {
+        std::cout << "Already signed form." << std::endl;
+        return ;
+    }
+    if (grade >= form.getGradeToSign()) {
+        std::cout
+        << name
+        << " signs "
+        << form.getName()
+        << std::endl;
+        form.beSigned(*this);
+    } else {
+        std::cout
+        << name
+        << " cannot sign "
+        << form.getName()
+        << " because grade is not enough."
+        << std::endl;
+    }
+}
+
 Bureaucrat::GradeTooHighException::GradeTooHighException() {}
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
