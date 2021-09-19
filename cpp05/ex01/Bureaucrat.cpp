@@ -9,7 +9,11 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
     (void)other;
     return *this;
 }
-Bureaucrat::Bureaucrat(Bureaucrat const &other) { (void)other; }
+Bureaucrat::Bureaucrat(Bureaucrat const &other):
+    name(other.name)
+{
+    assign_grade(other.grade);
+}
 //
 
 void                    Bureaucrat::assign_grade(int grade)
