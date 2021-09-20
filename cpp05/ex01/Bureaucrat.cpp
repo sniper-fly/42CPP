@@ -37,7 +37,7 @@ Bureaucrat::Bureaucrat(int grade, std::string name): name(name)
 Bureaucrat::~Bureaucrat() { }
 
 std::string const &     Bureaucrat::getName() const { return name; }
-int const &             Bureaucrat::getGrade() const { return grade; }
+int                     Bureaucrat::getGrade() const { return grade; }
 
 void                    Bureaucrat::incrementGrade() { assign_grade(grade - 1); }
 
@@ -49,7 +49,7 @@ void                    Bureaucrat::signForm(Form& form)
         std::cout << "Already signed form." << std::endl;
         return ;
     }
-    if (grade >= form.getGradeToSign()) {
+    if (grade <= form.getGradeToSign()) {
         std::cout
         << name
         << " signs "
@@ -61,7 +61,7 @@ void                    Bureaucrat::signForm(Form& form)
         << name
         << " cannot sign "
         << form.getName()
-        << " because grade is not enough."
+        << " because the grade is not enough."
         << std::endl;
     }
 }

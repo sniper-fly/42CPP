@@ -4,6 +4,8 @@
 #include <exception>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 private:
@@ -23,8 +25,8 @@ public:
 
     std::string const  &getName() const;
     bool                getIsSigned() const;
-    int const           getGradeToSign() const;
-    int const           getGradeToExecute() const;
+    int                 getGradeToSign() const;
+    int                 getGradeToExecute() const;
 
     void                beSigned(Bureaucrat const & bur);
 

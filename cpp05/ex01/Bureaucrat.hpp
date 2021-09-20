@@ -5,6 +5,8 @@
 #include <iostream>
 #include "Form.hpp"
 
+class Form;
+
 class Bureaucrat
 {
 private:
@@ -21,7 +23,7 @@ public:
     Bureaucrat(int grade, std::string name);
 
     std::string const &     getName() const;
-    int const &             getGrade() const;
+    int                     getGrade() const;
     void                    incrementGrade();
     void                    decrementGrade();
 
