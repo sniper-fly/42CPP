@@ -20,7 +20,7 @@ public:
     Bureaucrat(int grade, std::string name);
 
     std::string const &     getName() const;
-    int const &             getGrade() const;
+    int                     getGrade() const;
     void                    incrementGrade();
     void                    decrementGrade();
 

@@ -37,7 +37,7 @@ Bureaucrat::Bureaucrat(int grade, std::string name): name(name)
 Bureaucrat::~Bureaucrat() { }
 
 std::string const &     Bureaucrat::getName() const { return name; }
-int const &             Bureaucrat::getGrade() const { return grade; }
+int                     Bureaucrat::getGrade() const { return grade; }
 
 void                    Bureaucrat::incrementGrade() { assign_grade(grade - 1); }
 
