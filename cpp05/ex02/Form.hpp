@@ -19,6 +19,7 @@ private:
     Form(Form const &other);
     Form &operator=(Form const &other);
     void                checkException();
+    virtual void        action() = 0;
 public:
     Form(std::string const &name, int grade_to_sign, int grade_to_execute);
     virtual ~Form();
@@ -29,6 +30,7 @@ public:
     int                 getGradeToExecute() const;
 
     void                beSigned(Bureaucrat const & bur);
+    void                execute(Bureaucrat const & executor);
 
     class GradeTooHighException: public std::exception
     {
@@ -41,6 +43,12 @@ public:
     {
     public:
         GradeTooLowException();
+        const char* what() const throw();
+    };
+    class UnsignedFormException: public std::exception
+    {
+    public:
+        UnsignedFormException();
         const char* what() const throw();
     };
 };

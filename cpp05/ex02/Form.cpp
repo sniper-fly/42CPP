@@ -53,6 +53,17 @@ void                Form::beSigned(Bureaucrat const & bur)
     is_signed = true;
 }
 
+void                Form::execute(Bureaucrat const & executor)
+{
+    if (!is_signed) {
+        throw UnsignedFormException();
+    }
+    if (executor.getGrade() > grade_to_execute) {
+        throw GradeTooLowException();
+    }
+    action();
+}
+
 Form::GradeTooHighException::GradeTooHighException() {}
 
 const char* Form::GradeTooHighException::what() const throw()
@@ -65,6 +76,13 @@ Form::GradeTooLowException::GradeTooLowException() {}
 const char* Form::GradeTooLowException::what() const throw()
 {
     return "Error: GradeTooHighException: grade is too high";
+}
+
+Form::UnsignedFormException::UnsignedFormException() {}
+
+const char* Form::UnsignedFormException::what() const throw()
+{
+    return "Error: UnsignedFormException: This Form is unsigned";
 }
 
 std::ostream& operator<<(std::ostream &out, const Form &other)
