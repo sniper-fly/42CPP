@@ -15,12 +15,12 @@ private:
     int const           grade_to_execute; // 特に用途なし
 
 private:
-    Form();
-    Form(Form const &other);
     Form &operator=(Form const &other);
     void                checkException();
     virtual void        action() = 0;
 public:
+    Form();
+    Form(Form const &other);
     Form(std::string const &name, int grade_to_sign, int grade_to_execute);
     virtual ~Form();
 
