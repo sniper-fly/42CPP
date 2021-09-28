@@ -13,6 +13,7 @@ private:
     bool                is_signed;
     int const           grade_to_sign;
     int const           grade_to_execute; // 特に用途なし
+    std::string const   target;
 
 private:
     Form &operator=(Form const &other);
@@ -21,13 +22,14 @@ private:
 public:
     Form();
     Form(Form const &other);
-    Form(std::string const &name, int grade_to_sign, int grade_to_execute);
+    Form(std::string const &name, int grade_to_sign, int grade_to_execute, std::string target);
     virtual ~Form();
 
     std::string const  &getName() const;
     bool                getIsSigned() const;
     int                 getGradeToSign() const;
     int                 getGradeToExecute() const;
+    std::string const & getTarget() const;
 
     void                beSigned(Bureaucrat const & bur);
     void                execute(Bureaucrat const & executor);

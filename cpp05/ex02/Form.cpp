@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form():name(""), grade_to_sign(1), grade_to_execute(1) { }
+Form::Form():name(""), grade_to_sign(1), grade_to_execute(1), target("") { }
 
 Form::~Form() { }
 
@@ -8,7 +8,8 @@ Form::Form(Form const &other):
     name(other.name),
     is_signed(other.is_signed),
     grade_to_sign(other.grade_to_sign),
-    grade_to_execute(other.grade_to_execute)
+    grade_to_execute(other.grade_to_execute),
+    target(target)
 {
     checkException();
 }
@@ -31,11 +32,13 @@ void                Form::checkException()
     }
 }
 
-Form::Form(std::string const &name, int grade_to_sign, int grade_to_execute):
+Form::Form(std::string const &name, int grade_to_sign, int grade_to_execute,
+        std::string target):
     name(name),
     is_signed(false),
     grade_to_sign(grade_to_sign),
-    grade_to_execute(grade_to_execute)
+    grade_to_execute(grade_to_execute),
+    target(target)
 {
     checkException();
 }
@@ -44,6 +47,7 @@ std::string const  &Form::getName() const { return name; }
 bool                Form::getIsSigned() const { return is_signed; }
 int                 Form::getGradeToSign() const { return grade_to_sign; }
 int                 Form::getGradeToExecute() const { return grade_to_execute; }
+std::string const & Form::getTarget() const { return target; }
 
 void                Form::beSigned(Bureaucrat const & bur)
 {
@@ -91,6 +95,7 @@ std::ostream& operator<<(std::ostream &out, const Form &other)
     << "Name: " << other.getName() << ", "
     << "Sign: " << other.getIsSigned() << ", "
     << "GradeToSign: " << other.getGradeToSign() << ", "
-    << "GradeToExec: " << other.getGradeToExecute();
+    << "GradeToExec: " << other.getGradeToExecute() << ", "
+    << "Target: " << other.getTarget();
     return (out);
 }
