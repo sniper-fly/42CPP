@@ -9,17 +9,14 @@ Form::Form(Form const &other):
     is_signed(other.is_signed),
     grade_to_sign(other.grade_to_sign),
     grade_to_execute(other.grade_to_execute),
-    target(target)
+    target(other.target)
 {
     checkException();
 }
 
 Form &Form::operator=(Form const &other)
 {
-    if (this != &other)
-    {
-        this->is_signed = other.is_signed;
-    }
+    (void)other;
     return *this;
 }
 
@@ -79,7 +76,7 @@ Form::GradeTooLowException::GradeTooLowException() {}
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-    return "Error: GradeTooHighException: grade is too high";
+    return "Error: GradeTooLowException: grade is too low";
 }
 
 Form::UnsignedFormException::UnsignedFormException() {}
