@@ -34,23 +34,36 @@ public:
     void                beSigned(Bureaucrat const & bur);
     void                execute(Bureaucrat const & executor);
 
-    class GradeTooHighException: public std::exception
+    class SignGradeTooHighException: public std::exception
     {
     public:
-        GradeTooHighException();
+        SignGradeTooHighException();
         const char* what() const throw(); //無例外指定。この関数は例外を出さない。
     };
 
-    class GradeTooLowException: public std::exception
+    class SignGradeTooLowException: public std::exception
     {
     public:
-        GradeTooLowException();
+        SignGradeTooLowException();
         const char* what() const throw();
     };
     class UnsignedFormException: public std::exception
     {
     public:
         UnsignedFormException();
+        const char* what() const throw();
+    };
+    class ExecGradeTooHighException: public std::exception
+    {
+    public:
+        ExecGradeTooHighException();
+        const char* what() const throw(); //無例外指定。この関数は例外を出さない。
+    };
+
+    class ExecGradeTooLowException: public std::exception
+    {
+    public:
+        ExecGradeTooLowException();
         const char* what() const throw();
     };
 };

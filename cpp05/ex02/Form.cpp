@@ -22,10 +22,14 @@ Form &Form::operator=(Form const &other)
 
 void                Form::checkException()
 {
-    if (grade_to_sign < 1 || grade_to_execute < 1) {
-        throw Form::GradeTooHighException();
-    } else if (grade_to_sign > 150 || grade_to_execute > 150) {
-        throw Form::GradeTooLowException();
+    if (grade_to_sign < 1) {
+        throw Form::SignGradeTooHighException();
+    } else if (grade_to_execute < 1) {
+        throw Form::ExecGradeTooHighException();
+    } else if (grade_to_sign > 150) {
+        throw Form::SignGradeTooLowException();
+    } else if (grade_to_execute > 150) {
+        throw Form::ExecGradeTooLowException();
     }
 }
 
@@ -49,7 +53,7 @@ std::string const & Form::getTarget() const { return target; }
 void                Form::beSigned(Bureaucrat const & bur)
 {
     if (bur.getGrade() > grade_to_sign) {
-        throw Form::GradeTooLowException();
+        throw Form::SignGradeTooLowException();
     }
     is_signed = true;
 }
@@ -60,23 +64,23 @@ void                Form::execute(Bureaucrat const & executor)
         throw UnsignedFormException();
     }
     if (executor.getGrade() > grade_to_execute) {
-        throw GradeTooLowException();
+        throw ExecGradeTooLowException();
     }
     action();
 }
 
-Form::GradeTooHighException::GradeTooHighException() {}
+Form::SignGradeTooHighException::SignGradeTooHighException() {}
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* Form::SignGradeTooHighException::what() const throw()
 {
-    return "Error: GradeTooHighException: grade is too high";
+    return "Error: SignGradeTooHighException: grade is too high to sign";
 }
 
-Form::GradeTooLowException::GradeTooLowException() {}
+Form::SignGradeTooLowException::SignGradeTooLowException() {}
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* Form::SignGradeTooLowException::what() const throw()
 {
-    return "Error: GradeTooLowException: grade is too low";
+    return "Error: SignGradeTooLowException: grade is too low to sign";
 }
 
 Form::UnsignedFormException::UnsignedFormException() {}
@@ -84,6 +88,20 @@ Form::UnsignedFormException::UnsignedFormException() {}
 const char* Form::UnsignedFormException::what() const throw()
 {
     return "Error: UnsignedFormException: This Form is unsigned";
+}
+
+Form::ExecGradeTooHighException::ExecGradeTooHighException() {}
+
+const char* Form::ExecGradeTooHighException::what() const throw()
+{
+    return "Error: ExecGradeTooHighException: grade is too high to execute";
+}
+
+Form::ExecGradeTooLowException::ExecGradeTooLowException() {}
+
+const char* Form::ExecGradeTooLowException::what() const throw()
+{
+    return "Error: ExecGradeTooLowException: grade is too low to execute";
 }
 
 std::ostream& operator<<(std::ostream &out, const Form &other)
