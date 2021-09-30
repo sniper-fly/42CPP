@@ -1,7 +1,5 @@
 NAME = a.out
-SRCS = main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp
-
-# ShrubberyCreationForm.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 
@@ -21,7 +19,7 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) *_shrubbery
 
 fclean: clean
 	rm -rf $(NAME)

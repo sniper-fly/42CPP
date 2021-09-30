@@ -2,6 +2,7 @@
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
@@ -51,11 +52,16 @@ int main(void)
     PresidentialPardonForm pre("pre");
     bur.signForm(pre);
     pre.execute(bur);
+
     std::cout << "----------------------------------------------" << std::endl;
     RobotomyRequestForm robo("robo");
     bur.signForm(robo);
     robo.execute(bur);
 
+    std::cout << "----------------------------------------------" << std::endl;
+    ShrubberyCreationForm shrube("shrube");
+    bur.signForm(shrube);
+    shrube.execute(bur);
     /*
     // target変数が実装されていない。どこで使うのかよくわかっていないのでよく調べて方針を立てる
     execute関数はformで実装しているので、各Formファイルでactionの関数を実装すれば良い

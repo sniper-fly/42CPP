@@ -5,11 +5,11 @@
 class ShrubberyCreationForm: public Form
 {
 private:
-
-public:
     ShrubberyCreationForm();
+    virtual void        action();
+public:
     virtual ~ShrubberyCreationForm();
-    ShrubberyCreationForm(std::string const &name);
+    ShrubberyCreationForm(std::string const &target);
     ShrubberyCreationForm(ShrubberyCreationForm const &other);
     ShrubberyCreationForm &operator=(ShrubberyCreationForm const &other);
 };
