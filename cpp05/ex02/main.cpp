@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main(void)
 {
@@ -45,14 +46,18 @@ int main(void)
     std::cout << five_form2 << std::endl;
     */
 
-    PresidentialPardonForm hoge("hoge");
-    Bureaucrat bur(5, "a");
-    bur.signForm(hoge);
-    hoge.execute(bur);
+    Bureaucrat bur(5, "bur");
 
+    PresidentialPardonForm pre("pre");
+    bur.signForm(pre);
+    pre.execute(bur);
+    std::cout << "----------------------------------------------" << std::endl;
+    RobotomyRequestForm robo("robo");
+    bur.signForm(robo);
+    robo.execute(bur);
 
     /*
-    target変数が実装されていない。どこで使うのかよくわかっていないのでよく調べて方針を立てる
+    // target変数が実装されていない。どこで使うのかよくわかっていないのでよく調べて方針を立てる
     execute関数はformで実装しているので、各Formファイルでactionの関数を実装すれば良い
     signにgradeが足りないのか、execにgradeが足りないのかわかりづらいので例外を増やしても良いかもしれない
     */
