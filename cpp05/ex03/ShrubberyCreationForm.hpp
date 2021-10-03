@@ -12,6 +12,7 @@ public:
     ShrubberyCreationForm(std::string const &target);
     ShrubberyCreationForm(ShrubberyCreationForm const &other);
     ShrubberyCreationForm &operator=(ShrubberyCreationForm const &other);
+    virtual Form*       create_new(std::string const &target) const;
 };
 
 #endif

@@ -13,6 +13,8 @@ public:
     PresidentialPardonForm(const std::string & target);
     PresidentialPardonForm(PresidentialPardonForm const &other);
     PresidentialPardonForm &operator=(PresidentialPardonForm const &other);
+
+    virtual Form*       create_new(std::string const &target) const;
 };
 
 #endif

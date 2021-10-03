@@ -12,6 +12,7 @@ public:
     RobotomyRequestForm(std::string const &target);
     RobotomyRequestForm(RobotomyRequestForm const &other);
     RobotomyRequestForm &operator=(RobotomyRequestForm const &other);
+    virtual Form*       create_new(std::string const &target) const;
 };
 
 #endif

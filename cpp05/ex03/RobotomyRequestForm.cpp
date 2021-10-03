@@ -36,3 +36,8 @@ void        RobotomyRequestForm::action()
         std::cout << "Robotomizing failure." << std::endl;
     }
 }
+
+Form*       RobotomyRequestForm::create_new(std::string const &target) const
+{
+    return new RobotomyRequestForm(target);
+}

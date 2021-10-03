@@ -34,6 +34,8 @@ public:
     void                beSigned(Bureaucrat const & bur);
     void                execute(Bureaucrat const & executor);
 
+    virtual Form*       create_new(std::string const &target) const = 0;
+
     class SignGradeTooHighException: public std::exception
     {
     public:

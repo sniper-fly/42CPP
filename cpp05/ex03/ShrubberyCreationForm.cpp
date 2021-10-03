@@ -51,3 +51,8 @@ void        ShrubberyCreationForm::action()
     ofs << tree;
     std::cout << file_name << " created." << std::endl;
 }
+
+Form*       ShrubberyCreationForm::create_new(std::string const &target) const
+{
+    return new ShrubberyCreationForm(target);
+}
