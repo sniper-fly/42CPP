@@ -1,15 +1,25 @@
 #ifndef INTERN_HPP
 # define INTERN_HPP
+#include "Form.hpp"
+#include <string>
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+
+#define TOTAL_FORMS 3
 
 class Intern
 {
 private:
-
+    static Form*        forms[TOTAL_FORMS];
 public:
     Intern();
     virtual ~Intern();
-    Intern(Intern const &other);
-    Intern &operator=(Intern const &other);
+    Intern(Intern const &);
+    Intern &operator=(Intern const &);
+
+    Form*           makeForm(std::string name, std::string target);
+    static void     _delete_forms();
 };
 
 #endif
