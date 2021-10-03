@@ -6,7 +6,7 @@ PresidentialPardonForm::PresidentialPardonForm() { }
 PresidentialPardonForm::~PresidentialPardonForm() { }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string & target):
-    Form("PresidentialPardon", 25, 5, target)
+    Form("presidential pardon", 25, 5, target)
 {
 }
 
