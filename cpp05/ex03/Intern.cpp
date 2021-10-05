@@ -23,6 +23,7 @@ Form*       Intern::makeForm(std::string name, std::string target)
     const int NUM_INSTANCES = 3;
     for (int i = 0; i < NUM_INSTANCES; ++i) {
         if (forms[i]->getName() == name) {
+            std::cout << "Intern creates " << name << " form" << std::endl;
             return forms[i]->create_new(target);
         } 
     }
