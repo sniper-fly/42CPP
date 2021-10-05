@@ -7,13 +7,13 @@ RobotomyRequestForm::RobotomyRequestForm() { }
 RobotomyRequestForm::~RobotomyRequestForm() { }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const &target):
-    Form("RobotomyRequest", 72, 45, target)
+    Form("robotomy request", 72, 45, target)
 {
     srand(time(0));
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other):
-    Form("RobotomyRequest", 72, 45, other.getTarget())
+    Form("robotomy request", 72, 45, other.getTarget())
 {
     srand(time(0));
 }

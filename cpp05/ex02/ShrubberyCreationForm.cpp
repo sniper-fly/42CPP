@@ -7,12 +7,12 @@ ShrubberyCreationForm::ShrubberyCreationForm() { }
 ShrubberyCreationForm::~ShrubberyCreationForm() { }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target):
-    Form("ShrubberyCreationForm", 145, 137, target)
+    Form("shrubbery creation", 145, 137, target)
 {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other):
-    Form("ShrubberyCreationForm", 145, 137, other.getName())
+    Form("shrubbery creation", 145, 137, other.getName())
 {
 }
 

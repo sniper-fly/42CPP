@@ -54,6 +54,7 @@ void                    Bureaucrat::signForm(Form& form)
         << name
         << " signs "
         << form.getName()
+        << " form"
         << std::endl;
         form.beSigned(*this);
     } else {
@@ -61,7 +62,7 @@ void                    Bureaucrat::signForm(Form& form)
         << name
         << " cannot sign "
         << form.getName()
-        << " because the grade is not enough."
+        << " form because the grade is not enough."
         << std::endl;
     }
 }
