@@ -11,13 +11,13 @@ int main(void)
     int tests[] = {0, 1, 5, 25, 45, 72, 137, 145, 150, 151} ;
     int len = 10;
     for (int i = 0; i < len; ++i) {
+        std::cout << "==============================" << std::endl;
+        std::cout << "test case:" << tests[i] << std::endl;
+        std::cout << "==============================" << std::endl;
         Form *pre = intern.makeForm("presidential pardon", "pre");
         Form *robo = intern.makeForm("robotomy request", "robo");
         Form *shrube = intern.makeForm("shrubbery creation", "shrube");
         try {
-            std::cout << "==============================" << std::endl;
-            std::cout << "test case:" << tests[i] << std::endl;
-            std::cout << "==============================" << std::endl;
             Bureaucrat bur(tests[i], "bur");
 
             bur.signForm(*shrube);
@@ -38,9 +38,15 @@ int main(void)
         delete shrube;
     }
 
+    // 知らない単語だときちんとエラーを吐くかどうか
+    Form *unknown = intern.makeForm("hoge", "fuga");
+    (void)unknown;
+
     Intern::_delete_forms();
 }
 
 /* TODO
 メモリリークの対処
+
+出力結果がまちがっていないか？ex02と統一すべき？
 */
