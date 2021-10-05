@@ -9,13 +9,21 @@ RobotomyRequestForm::~RobotomyRequestForm() { }
 RobotomyRequestForm::RobotomyRequestForm(std::string const &target):
     Form("robotomy request", 72, 45, target)
 {
-    srand(time(0));
+    static bool is_first_time = true;
+    if (is_first_time) {
+        srand(time(0));
+        is_first_time = false;
+    }
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other):
     Form("robotomy request", 72, 45, other.getTarget())
 {
-    srand(time(0));
+    static bool is_first_time = true;
+    if (is_first_time) {
+        srand(time(0));
+        is_first_time = false;
+    }
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &other)
