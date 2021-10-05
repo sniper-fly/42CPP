@@ -2,14 +2,16 @@
 
 Intern::Intern() { }
 
-// TODO: これがメモリリークする？どう処理する？
 Form* Intern::forms[TOTAL_FORMS] = {
     new PresidentialPardonForm(""),
     new RobotomyRequestForm(""),
     new ShrubberyCreationForm("")
 };
 
-Intern::~Intern() { }
+Intern::~Intern()
+{
+    _delete_forms();
+}
 
 Intern::Intern(Intern const &) { }
 

@@ -41,8 +41,6 @@ int main(void)
     // 知らない単語だときちんとエラーを吐くかどうか
     Form *unknown = intern.makeForm("hoge", "fuga");
     (void)unknown;
-
-    Intern::_delete_forms();
 }
 
 /* TODO

@@ -12,6 +12,7 @@ class Intern
 {
 private:
     static Form*        forms[TOTAL_FORMS];
+    void                _delete_forms();
 public:
     Intern();
     virtual ~Intern();
@@ -19,7 +20,6 @@ public:
     Intern &operator=(Intern const &);
 
     Form*           makeForm(std::string name, std::string target);
-    static void     _delete_forms();
 };
 
 #endif
