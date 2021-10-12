@@ -1,0 +1,73 @@
+-3.40282e+38
+3.40282e+38
+-inf
+inf
+-1.79769e+308
+1.79769e+308
+-inf
+inf
+=====================
+2.14748e+09
+-2.14748e+09
+=====================
+-2147483648
+2147483647
+-2147483649
+2147483648
+------------------------------
+----[in]----
+float:0
+doubl:0
+long :0
+----[a]----
+float:0
+doubl:0
+long :0
+----[f]----
+float:0
+doubl:0
+long :0
+----[42.0f]----
+float:42
+doubl:42
+long :42
+----[nan]----
+float:nan
+doubl:nan
+long :0
+----[nanf]----
+float:nan
+doubl:nan
+long :0
+----[nanf]----
+float:nan
+doubl:nan
+long :0
+----[-nan]----
+float:-nan
+doubl:-nan
+long :0
+----[-nanf]----
+float:-nan
+doubl:-nan
+long :0
+----[inf]----
+float:inf
+doubl:inf
+long :0
+----[+inf]----
+float:inf
+doubl:inf
+long :0
+----[-inf]----
+float:-inf
+doubl:-inf
+long :0
+----[+inff]----
+float:inf
+doubl:inf
+long :0
+----[-inff]----
+float:-inf
+doubl:-inf
+long :0
