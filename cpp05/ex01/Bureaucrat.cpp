@@ -88,7 +88,7 @@ std::ostream& operator<<(std::ostream &out, const Bureaucrat &other)
     return out;
 }
 
-/* TODO
+/* 
 各種コンストラクタなど
 例外クラス実装
 インクリメントなど

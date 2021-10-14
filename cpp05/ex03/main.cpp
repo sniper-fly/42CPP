@@ -43,7 +43,7 @@ int main(void)
     (void)unknown;
 }
 
-/* TODO
+/* 
 メモリリークの対処
 
 出力結果がまちがっていないか？ex02と統一すべき？
