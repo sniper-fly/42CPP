@@ -4,6 +4,9 @@ Converter::Converter() { }
 
 Converter::Converter(const char* str_number)
 {
+    if (!(isNormalNumber(str_number) || isSpecialNumber(str_number))) {
+        throw std::runtime_error("Invalid argument");
+    }
     setChar(str_number);
     setInt(str_number);
     setFloat(str_number);
@@ -81,12 +84,24 @@ void    Converter::setDouble(const char* str_num)
 
 void    Converter::putChar() const
 {
-    std::cout << "char: '" << ch << "'" << std::endl;
+    std::cout << "char: ";
+    if (ch_status == OVERFLOW_ERR) {
+        std::cout << "impossible" << std::endl;
+        return ;
+    } else if (ch_status == NON_DISPLAYABLE_ERR) {
+        std::cout << "Non displayable" << std::endl;
+        return ;
+    }
+    std::cout << "'" << ch << "'" << std::endl;
 }
 
 void    Converter::putInt() const
 {
-    std::cout << "int: " << int_num << std::endl;
+    std::cout << "int: ";
+    if (int_status == OVERFLOW_ERR) {
+        std::cout << "impossible" << std::endl;
+    }
+    std::cout << int_num << std::endl;
 }
 
 void    Converter::putFloat() const {}
@@ -98,4 +113,41 @@ void    Converter::print() const
     putInt();
     putFloat();
     putDouble();
+}
+
+bool    Converter::isNormalNumber(const char* str_number) const
+{
+    const char* normal_num_chars = "0123456789-+f.";
+    for (int i = 0; str_number[i]; ++i) {
+        const bool has_normal_num = strchr(normal_num_chars, str_number[i]);
+        if (!has_normal_num) {
+            return false;
+        }
+    } 
+    return true;
+}
+
+bool    Converter::isSpecialNumber(const char* str_number) const
+{
+    const int TOTAL = 12;
+    std::string inf_numbers[] = {
+        "nan",
+        "+nan",
+        "-nan",
+        "nanf",
+        "+nanf",
+        "-nanf",
+        "inf",
+        "+inf",
+        "-inf",
+        "inff",
+        "+inff",
+        "-inff"
+    };
+    for (int i = 0; i < TOTAL; ++i) {
+        if (inf_numbers[i] == str_number) {
+            return true;
+        }
+    }
+    return false;
 }

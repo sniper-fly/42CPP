@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <climits>
 #include <iostream>
+#include <cstring>
 
 class Converter
 {
@@ -26,10 +27,14 @@ private:
     void    putInt() const;
     void    putFloat() const;
     void    putDouble() const;
+
+    bool    isSpecialNumber(const char* str_number) const;
+    bool    isNormalNumber(const char* str_number) const;
 public:
     enum : int {
-        OVERFLOW_ERR        = -1,
-        NON_DISPLAYABLE_ERR = -2,
+        OVERFLOW_ERR            = -1,
+        NON_DISPLAYABLE_ERR     = -2,
+        INCOMPATIBLE_NUM_ERR    = -3
     };
     Converter(const char* str_number);
     virtual ~Converter();

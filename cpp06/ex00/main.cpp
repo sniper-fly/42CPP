@@ -11,7 +11,12 @@ int main(int argc, char **argv)
         return 1;
     }
     const char* str_number = argv[1];
-    Converter   converted_num(str_number);
-    converted_num.print();
+    try {
+        Converter   converted_num(str_number);
+        converted_num.print();
+    } catch (std::runtime_error &e) {
+        std::cerr << e.what() << std::endl;
+        return 2;
+    }
     return 0;
 }
