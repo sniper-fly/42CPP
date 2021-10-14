@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <float.h>
+#include "Converter.hpp"
 
 int main(int argc, char **argv)
 {
@@ -10,4 +11,7 @@ int main(int argc, char **argv)
         return 1;
     }
     const char* str_number = argv[1];
+    Converter   converted_num(str_number);
+    converted_num.print();
+    return 0;
 }
