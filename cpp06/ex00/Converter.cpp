@@ -25,6 +25,8 @@ Converter &Converter::operator=(Converter const &other)
         int_num = other.int_num;
         float_num = other.float_num;
         double_num = other.double_num;
+        ch_status = other.ch_status;
+        int_status = other.int_status;
     }
     return *this;
 }
@@ -37,18 +39,63 @@ double  Converter::getDouble() const { return double_num; }
 void    Converter::setChar(const char* str_num)
 {
     const long ascii_ch = strtol(str_num, NULL, 10);
-    //TODO: strtolがオーバーフローしたら？
-    const bool is_char_overflow = !(-128 <= ascii_ch && ascii_ch <= 127);
+    //strtolがオーバーフローしても最大値か最小値が変えるだけなので影響なし
+    const bool is_overflow = !(CHAR_MIN <= ascii_ch && ascii_ch <= CHAR_MAX);
     const bool is_displayable = (32 <= ascii_ch && ascii_ch <= 126);
 
-    if (is_char_overflow) {
-        ch = OVERFLOW_ERR;
+    ch = 0;
+    ch_status = 0;
+    if (is_overflow) {
+        ch_status = OVERFLOW_ERR;
+        return ;
     } else if (!is_displayable) {
-        ch = NON_DISPLAYABLE_ERR;
+        ch_status = NON_DISPLAYABLE_ERR;
+        return ;
     }
     ch = ascii_ch;
 }
 
-void    Converter::setInt(const char* str_num) {}
-void    Converter::setFloat(const char* str_num) {}
-void    Converter::setDouble(const char* str_num) {}
+void    Converter::setInt(const char* str_num)
+{
+    const long      num = strtol(str_num, NULL, 10);
+    const bool      is_overflow = !(INT_MIN <= num && num <= INT_MAX);
+
+    int_num = 0;
+    int_status = 0;
+    if (is_overflow) {
+        int_status = OVERFLOW_ERR;
+        return ;
+    }
+    int_num = num;
+}
+
+void    Converter::setFloat(const char* str_num)
+{
+    float_num = strtof(str_num, NULL);
+}
+
+void    Converter::setDouble(const char* str_num)
+{
+    double_num = strtod(str_num, NULL);
+}
+
+void    Converter::putChar() const
+{
+    std::cout << "char: '" << ch << "'" << std::endl;
+}
+
+void    Converter::putInt() const
+{
+    std::cout << "int: " << int_num << std::endl;
+}
+
+void    Converter::putFloat() const {}
+void    Converter::putDouble() const {}
+
+void    Converter::print() const
+{
+    putChar();
+    putInt();
+    putFloat();
+    putDouble();
+}

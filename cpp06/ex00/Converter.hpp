@@ -2,6 +2,8 @@
 #define CONVERTER_HPP
 #include <cfloat>
 #include <cstdlib>
+#include <climits>
+#include <iostream>
 
 class Converter
 {
@@ -10,6 +12,9 @@ private:
     int     int_num;
     float   float_num;
     double  double_num;
+
+    int     ch_status;
+    int     int_status;
     Converter();
 
     void    setChar(const char* str_num);
@@ -17,10 +22,10 @@ private:
     void    setFloat(const char* str_num);
     void    setDouble(const char* str_num);
 
-    void    putChar();
-    void    putInt();
-    void    putFloat();
-    void    putDouble();
+    void    putChar() const;
+    void    putInt() const;
+    void    putFloat() const;
+    void    putDouble() const;
 public:
     enum : int {
         OVERFLOW_ERR        = -1,
@@ -35,6 +40,7 @@ public:
     int     getInt() const;
     float   getFloat() const;
     double  getDouble() const;
+    //TODO: getterいらなそうだから消す
 
     void    print() const;
 };
