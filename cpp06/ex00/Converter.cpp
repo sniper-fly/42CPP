@@ -4,13 +4,14 @@ Converter::Converter() { }
 
 Converter::Converter(const char* str_number)
 {
+    this->str_number = str_number;
     if (!(isNormalNumber(str_number) || isSpecialNumber(str_number))) {
         throw std::runtime_error("Invalid argument");
     }
-    setChar(str_number);
-    setInt(str_number);
-    setFloat(str_number);
-    setDouble(str_number);
+    setChar();
+    setInt();
+    setFloat();
+    setDouble();
 }
 
 Converter::~Converter() { }
@@ -24,6 +25,7 @@ Converter &Converter::operator=(Converter const &other)
 {
     if (this != &other)
     {
+        str_number = other.str_number;
         ch = other.ch;
         int_num = other.int_num;
         float_num = other.float_num;
@@ -39,9 +41,9 @@ int     Converter::getInt() const { return int_num; }
 float   Converter::getFloat() const { return float_num; }
 double  Converter::getDouble() const { return double_num; }
 
-void    Converter::setChar(const char* str_num)
+void    Converter::setChar()
 {
-    const long ascii_ch = strtol(str_num, NULL, 10);
+    const long ascii_ch = strtol(str_number, NULL, 10);
     //strtolがオーバーフローしても最大値か最小値が変えるだけなので影響なし
     const bool is_overflow = !(CHAR_MIN <= ascii_ch && ascii_ch <= CHAR_MAX);
     const bool is_displayable = (32 <= ascii_ch && ascii_ch <= 126);
@@ -58,9 +60,9 @@ void    Converter::setChar(const char* str_num)
     ch = ascii_ch;
 }
 
-void    Converter::setInt(const char* str_num)
+void    Converter::setInt()
 {
-    const long      num = strtol(str_num, NULL, 10);
+    const long      num = strtol(str_number, NULL, 10);
     const bool      is_overflow = !(INT_MIN <= num && num <= INT_MAX);
 
     int_num = 0;
@@ -72,14 +74,14 @@ void    Converter::setInt(const char* str_num)
     int_num = num;
 }
 
-void    Converter::setFloat(const char* str_num)
+void    Converter::setFloat()
 {
-    float_num = strtof(str_num, NULL);
+    float_num = strtof(str_number, NULL);
 }
 
-void    Converter::setDouble(const char* str_num)
+void    Converter::setDouble()
 {
-    double_num = strtod(str_num, NULL);
+    double_num = strtod(str_number, NULL);
 }
 
 void    Converter::putChar() const
@@ -130,7 +132,7 @@ bool    Converter::isNormalNumber(const char* str_number) const
 bool    Converter::isSpecialNumber(const char* str_number) const
 {
     const int TOTAL = 12;
-    std::string inf_numbers[] = {
+    std::string special_numbers[] = {
         "nan",
         "+nan",
         "-nan",
@@ -145,7 +147,7 @@ bool    Converter::isSpecialNumber(const char* str_number) const
         "-inff"
     };
     for (int i = 0; i < TOTAL; ++i) {
-        if (inf_numbers[i] == str_number) {
+        if (special_numbers[i] == str_number) {
             return true;
         }
     }

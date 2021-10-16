@@ -16,12 +16,14 @@ private:
 
     int     ch_status;
     int     int_status;
+
+    const char*   str_number;
     Converter();
 
-    void    setChar(const char* str_num);
-    void    setInt(const char* str_num);
-    void    setFloat(const char* str_num);
-    void    setDouble(const char* str_num);
+    void    setChar();
+    void    setInt();
+    void    setFloat();
+    void    setDouble();
 
     void    putChar() const;
     void    putInt() const;
