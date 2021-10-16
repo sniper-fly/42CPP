@@ -55,7 +55,7 @@ void    Converter::setChar()
     const bool is_overflow = !(CHAR_MIN <= ascii_ch && ascii_ch <= CHAR_MAX);
     const bool is_displayable = (32 <= ascii_ch && ascii_ch <= 126);
 
-    ch = 0;
+    ch = static_cast<char>(0);
     ch_status = 0;
     if (is_overflow) {
         ch_status = OVERFLOW_ERR;
@@ -64,7 +64,7 @@ void    Converter::setChar()
         ch_status = NON_DISPLAYABLE_ERR;
         return ;
     }
-    ch = ascii_ch;
+    ch = static_cast<char>(ascii_ch);
 }
 
 void    Converter::setInt()
@@ -72,23 +72,23 @@ void    Converter::setInt()
     const long      num = strtol(str_number, NULL, 10);
     const bool      is_overflow = !(INT_MIN <= num && num <= INT_MAX);
 
-    int_num = 0;
+    int_num = static_cast<int>(0);
     int_status = 0;
     if (is_overflow) {
         int_status = OVERFLOW_ERR;
         return ;
     }
-    int_num = num;
+    int_num = static_cast<int>(num);
 }
 
 void    Converter::setFloat()
 {
-    float_num = strtof(str_number, NULL);
+    float_num = static_cast<float>(strtof(str_number, NULL));
 }
 
 void    Converter::setDouble()
 {
-    double_num = strtod(str_number, NULL);
+    double_num = static_cast<double>(strtod(str_number, NULL));
 }
 
 void    Converter::putChar() const
