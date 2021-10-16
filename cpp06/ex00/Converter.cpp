@@ -5,13 +5,16 @@ Converter::Converter() { }
 Converter::Converter(const char* str_number)
 {
     this->str_number = str_number;
-    if (!(isNormalNumber(str_number) || isSpecialNumber(str_number))) {
+    is_special_number = isSpecialNumber(str_number);
+    if (!(isNormalNumber(str_number) || is_special_number)) {
         throw std::runtime_error("Invalid argument");
     }
     setChar();
     setInt();
     setFloat();
     setDouble();
+    is_integer_number = isIntegerNumber();
+    should_display_as_floating_point_expr = shouldDisplayAsFloatingPointExpr();
 }
 
 Converter::~Converter() { }
@@ -32,6 +35,10 @@ Converter &Converter::operator=(Converter const &other)
         double_num = other.double_num;
         ch_status = other.ch_status;
         int_status = other.int_status;
+        is_special_number = other.is_special_number;
+        is_integer_number = other.is_integer_number;
+        should_display_as_floating_point_expr =
+            other.should_display_as_floating_point_expr;
     }
     return *this;
 }
@@ -87,7 +94,7 @@ void    Converter::setDouble()
 void    Converter::putChar() const
 {
     std::cout << "char: ";
-    if (ch_status == OVERFLOW_ERR) {
+    if (ch_status == OVERFLOW_ERR || is_special_number) {
         std::cout << "impossible" << std::endl;
         return ;
     } else if (ch_status == NON_DISPLAYABLE_ERR) {
@@ -100,14 +107,32 @@ void    Converter::putChar() const
 void    Converter::putInt() const
 {
     std::cout << "int: ";
-    if (int_status == OVERFLOW_ERR) {
+    if (int_status == OVERFLOW_ERR || is_special_number) {
         std::cout << "impossible" << std::endl;
+        return ;
     }
     std::cout << int_num << std::endl;
 }
 
-void    Converter::putFloat() const {}
-void    Converter::putDouble() const {}
+void    Converter::putFloat() const
+{
+    std::cout << "float: ";
+    std::cout << float_num;
+    if (is_integer_number && !should_display_as_floating_point_expr) {
+        std::cout << ".0";
+    }
+    std::cout << "f" << std::endl;
+}
+
+void    Converter::putDouble() const
+{
+    std::cout << "double: ";
+    std::cout << float_num;
+    if (is_integer_number && !should_display_as_floating_point_expr) {
+        std::cout << ".0";
+    }
+    std::cout << std::endl;
+}
 
 void    Converter::print() const
 {
@@ -152,4 +177,14 @@ bool    Converter::isSpecialNumber(const char* str_number) const
         }
     }
     return false;
+}
+
+bool    Converter::isIntegerNumber() const
+{
+    return std::floor(double_num) == double_num;
+}
+
+bool    Converter::shouldDisplayAsFloatingPointExpr() const
+{
+    return double_num <= -1e6 || 1e6 <= double_num;
 }

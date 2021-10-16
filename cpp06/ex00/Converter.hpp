@@ -5,6 +5,7 @@
 #include <climits>
 #include <iostream>
 #include <cstring>
+#include <cmath>
 
 class Converter
 {
@@ -16,6 +17,10 @@ private:
 
     int     ch_status;
     int     int_status;
+
+    bool    is_special_number;
+    bool    is_integer_number;
+    bool    should_display_as_floating_point_expr;
 
     const char*   str_number;
     Converter();
@@ -32,6 +37,8 @@ private:
 
     bool    isSpecialNumber(const char* str_number) const;
     bool    isNormalNumber(const char* str_number) const;
+    bool    isIntegerNumber() const;
+    bool    shouldDisplayAsFloatingPointExpr() const;
 public:
     enum : int {
         OVERFLOW_ERR            = -1,
