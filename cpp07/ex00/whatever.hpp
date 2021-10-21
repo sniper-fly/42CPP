@@ -11,13 +11,13 @@ void swap(TYPE &a, TYPE &b)
 }
 
 template <typename TYPE>
-TYPE min(TYPE a, TYPE b)
+TYPE &min(TYPE &a, TYPE &b)
 {
     return (a >= b) ? b : a;
 }
 
 template <typename TYPE>
-TYPE max(TYPE a, TYPE b)
+TYPE &max(TYPE &a, TYPE &b)
 {
     return (a <= b) ? b : a;
 }
