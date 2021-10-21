@@ -15,13 +15,12 @@ void printer(TYPE1 a, TYPE2 b)
     << std::endl;
 }
 
-
 int main()
 {
     void* p;
     char str[100];
     int num;
-    
+
     p = max<void*>(str, &num);
     std::cout << p << std::endl;
 
