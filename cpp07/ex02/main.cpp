@@ -5,8 +5,6 @@
 int main()
 {
     // コンストラクタと引数コンストラクタで範囲内の挙動
-    Array<int> arr1;
-    std::cout << arr1.size() << std::endl;
     Array<float> arr2(10);
     for (int i = 0; i < 10; ++i) {
         arr2[i] = i;
@@ -30,6 +28,8 @@ int main()
     } catch (std::exception& e) {
         std::cout << e.what() << std::endl;
     }
+    Array<int> arr1;
+    std::cout << arr1.size() << std::endl;
     try {
         arr1[0] = 10;
         std::cout << 0 << std::endl;
@@ -83,6 +83,14 @@ int main()
         }
         std::cout << clone3[i] << std::endl;
         // std::cout << clone[i] << std::endl;
+    }
+
+    //constオブジェクトでも機能するか
+    std::cout << "===========================" << std::endl;
+    const Array<float> constant(arr2);
+    for (int i = 0; i < 3; ++i) {
+        // constant[i] = 10;
+        std::cout << constant[i] << std::endl;
     }
 }
 

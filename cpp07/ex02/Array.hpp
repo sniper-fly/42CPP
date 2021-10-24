@@ -19,6 +19,7 @@ public:
 
     Array<T>&       operator=(Array<T> const &other);
     T&              operator[](unsigned int idx);
+    const T&        operator[](unsigned int idx) const;
     unsigned int    size(void) const;
 };
 
@@ -62,6 +63,15 @@ Array<T>&          Array<T>::operator=(Array<T> const &other)
 
 template <typename T>
 T&              Array<T>::operator[](unsigned int idx)
+{
+    if (idx >= length) {
+        throw std::exception();
+    }
+    return array[idx];
+}
+
+template <typename T>
+const T&              Array<T>::operator[](unsigned int idx) const
 {
     if (idx >= length) {
         throw std::exception();
