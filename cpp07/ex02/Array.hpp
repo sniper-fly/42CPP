@@ -9,6 +9,8 @@ class Array
 private:
     T*                array;
     unsigned int      length;
+
+    void            copy(Array<T> const &other);
 public:
     Array();
     Array(unsigned int n);
@@ -47,18 +49,15 @@ Array<T>::~Array()
 template <typename T>
 Array<T>::Array(Array<T> const &other)
 {
-    *this = other;
+    copy(other);
 }
 
 template <typename T>
 Array<T>&          Array<T>::operator=(Array<T> const &other)
 {
     delete[] array;
-    length = other.length;
-    array = new T[length];
-    for (int i = 0; i < other.length; ++i) {
-        array[i] = (other.array)[i];
-    }
+    copy(other);
+    return *this;
 }
 
 template <typename T>
@@ -74,6 +73,16 @@ template <typename T>
 unsigned int    Array<T>::size(void) const
 {
     return length;
+}
+
+template <typename T>
+void            Array<T>::copy(Array<T> const &other)
+{
+    length = other.length;
+    array = new T[length];
+    for (unsigned int i = 0; i < other.length; ++i) {
+        array[i] = (other.array)[i];
+    }
 }
 
 #endif
