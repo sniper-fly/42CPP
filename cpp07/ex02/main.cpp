@@ -1,7 +1,23 @@
 #include "Array.hpp"
+#include <iostream>
 
 int main()
 {
+    // コンストラクタと引数コンストラクタで範囲内の挙動
+    Array<int> arr1;
+    std::cout << arr1.size() << std::endl;
+    Array<float> arr2(10);
+    for (int i = 0; i < 10; ++i) {
+        arr2[i] = i;
+    }
+    std::cout << "===========================" << std::endl;
+    for (int i = 0; i < 10; ++i) {
+        std::cout << arr2[i] << std::endl;
+    }
+
+    // 範囲外で例外を出すか
+    // string型で動作するか
+    // コピーコンストラクタや=オペレータはディープコピーなのか メモリリークはないか
     
 }
 
