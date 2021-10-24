@@ -32,6 +32,9 @@ Array<T>::Array(unsigned int n)
 {
     length = n;
     array = new T[n];
+    if (array == NULL) {
+        throw std::exception();
+    }
 }
 
 template <typename T>
