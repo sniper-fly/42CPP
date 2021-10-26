@@ -120,6 +120,23 @@ void string_test()
     }
 }
 
+void print_const(const std::string &str) { std::cout << str << std::endl; }
+
+void const_test()
+{
+    const std::string tested[LENGTH] = {
+        "apple",
+        "banana",
+        "coin",
+        "damage",
+        "egg",
+        "flower",
+        "geek",
+        "hack",
+    };
+    iter(tested, LENGTH, print_const);
+}
+
 int main()
 {
     // int型配列各要素に1を足す
@@ -130,4 +147,30 @@ int main()
     std::cout << "=======================" << std::endl;
     // stringで各要素の末尾にhogeを足して出力
     string_test();
+    const_test();
 }
+
+/*
+class Awesome
+{
+public:
+    Awesome( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+    private:
+    int _n;
+};
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+
+template< typename T >
+void print( T const & x ) { std::cout << x << std::endl; return; }
+
+int main() {
+    int tab[] = { 0, 1, 2, 3, 4 }; // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+    Awesome tab2[5];
+
+    iter( tab, 5, print );
+    iter( tab2, 5, print );
+
+    return 0;
+}
+*/
