@@ -6,7 +6,7 @@
 #define NOT !
 
 template <typename T>
-void print(T something)
+void print_any(T something)
 {
     std::cout << something << std::endl;
 }
@@ -49,7 +49,7 @@ void int_test()
         3
     };
     iter(tested, LENGTH, add_one);
-    iter(tested, LENGTH, print);
+    iter(tested, LENGTH, print_any);
     const bool has_different_elem = memcmp(tested, tester, LENGTH);
     if (has_different_elem) {
         std::cout << "int test: something wrong" << std::endl;
@@ -80,7 +80,7 @@ void double_test()
         3.6
     };
     iter(tested, LENGTH, add_one);
-    iter(tested, LENGTH, print);
+    iter(tested, LENGTH, print_any);
     const bool has_different_elem = memcmp(tested, tester, LENGTH);
     if (has_different_elem) {
         std::cout << "double test: something wrong" << std::endl;
@@ -111,7 +111,7 @@ void string_test()
         "hackhoge",
     };
     iter(tested, LENGTH, add_hoge);
-    iter(tested, LENGTH, print);
+    iter(tested, LENGTH, print_any);
     for (int i = 0; i < LENGTH; ++i) {
         if (tested[i] != tester[i]) {
             std::cout << "string test: something wrong" << std::endl;
