@@ -54,7 +54,6 @@ public:
     int     getInt() const;
     float   getFloat() const;
     double  getDouble() const;
-    //TODO: getterいらなそうだから消す
 
     void    print() const;
 };
