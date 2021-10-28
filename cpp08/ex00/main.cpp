@@ -1,51 +1,80 @@
 #include "easyfind.hpp"
 #include <vector>
 #include <iostream>
+#include <deque>
+#include <list>
+#include <set>
 
-template <typename iter, typename container>
-void test_if_num_exist(const container& c, const iter& it, int search)
+template <typename T>
+void test_container(T &container, const int search, const char* test_name)
 {
-    if (it == c.end()) {
+    std::cout
+    << "========"
+    << test_name
+    << "========"
+    << std::endl;
+    typename T::iterator it = easyfind(container, search);
+    if (it == container.end()) {
         std::cout << search << ": does not exist" << std::endl;
     } else {
         std::cout << *it << ": found" << std::endl;
     }
+    std::cout << std::endl;
+}
+
+template <typename T>
+void test_const_container(const T &container, const int search, const char* test_name)
+{
+    std::cout
+    << "========"
+    << test_name
+    << "========"
+    << std::endl;
+    typename T::const_iterator it = easyfind(container, search);
+    if (it == container.end()) {
+        std::cout << search << ": does not exist" << std::endl;
+    } else {
+        std::cout << *it << ": found" << std::endl;
+    }
+    std::cout << std::endl;
 }
 
 int main()
 {
     const int numbers[] = {3, 13, 42, 21, 4};
 
-    std::vector<int> v(numbers, numbers + 5);
+    std::cout << "container test" << std::endl;
     {
-        const int search = 4;
-        std::vector<int>::iterator it = easyfind(v, search);
-        test_if_num_exist(v, it, search);
-    }
-    {
-        const int search = 1;
-        std::vector<int>::iterator it = easyfind(v, search);
-        test_if_num_exist(v, it, search);
-    }
-    {
-        const int search = 13;
-        const std::vector<int>::iterator it = easyfind(v, search);
-        test_if_num_exist(v, it, search);
+        std::vector<int>    vec(numbers, numbers + 5);
+        std::deque<int>     deq(numbers, numbers + 5);
+        std::list<int>      lst(numbers, numbers + 5);
+        std::set<int>       set(numbers, numbers + 5);
+        std::multiset<int>  mset(numbers, numbers + 5);
+        test_container(vec, 13, "vec");
+        test_container(deq, 14, "deq");
+        test_container(lst, 21, "lst");
+        test_container(set, 4, "set");
+        test_container(mset, 3, "mset");
     }
 
-    const std::vector<int> v_const(numbers, numbers + 5);
+    std::cout << std::endl;
+    std::cout << "const container test" << std::endl;
     {
-        const int search = 13;
-        std::vector<int>::const_iterator it = easyfind(v_const, search);
-        test_if_num_exist(v_const, it, search);
-    }
-    {
-        const int search = 16;
-        const std::vector<int>::const_iterator it = easyfind(v_const, search);
-        test_if_num_exist(v_const, it, search);
+        const std::vector<int>    vec(numbers, numbers + 5);
+        const std::deque<int>     deq(numbers, numbers + 5);
+        const std::list<int>      lst(numbers, numbers + 5);
+        const std::set<int>       set(numbers, numbers + 5);
+        const std::multiset<int>  mset(numbers, numbers + 5);
+        test_const_container(vec, 14, "vec");
+        test_const_container(deq, 13, "deq");
+        test_const_container(lst, 14, "lst");
+        test_const_container(set, 14, "set");
+        test_const_container(mset, 14, "mset");
     }
 
 }
+
+
 
 /*
 https://qiita.com/_EnumHack/items/a3724dead343b5aecb4e
