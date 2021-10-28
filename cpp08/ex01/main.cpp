@@ -6,27 +6,59 @@
 #include <limits>
 #include <exception>
 
+void print_test_title(const std::string& title)
+{
+    std::cout << std::endl;
+    std::cout << "=================" << std::endl;
+    std::cout << title << std::endl;
+    std::cout << "=================" << std::endl;
+}
+
+void print_shortest_span(Span& sp)
+{
+    std::cout << "shortest span: ";
+    std::cout << sp.shortestSpan() << std::endl;
+}
+
+void print_longest_span(Span& sp)
+{
+    std::cout << "longest span: ";
+    std::cout << sp.longestSpan() << std::endl;
+}
+
+void print_adding_num(Span& sp, int num)
+{
+    std::cout << "going to add " << num << ", ";
+    sp.addNumber(num);
+    std::cout << num << " added" << std::endl;
+}
+
+void print_adding_numbers(Span& sp, int* begin, int size)
+{
+    std::cout << "going to add ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << begin[i] << ", ";
+    }
+    std::cout << std::endl;
+    sp.addNumber(begin, begin + size);
+    std::cout << "all of them added" << std::endl;
+}
+
 int main()
 {
     srand(time(0));
-    // normal test
-    std::cout << "=================" << std::endl;
-    std::cout << "normal test" << std::endl;
-    std::cout << "=================" << std::endl;
+
+    print_test_title("normal test");
     {
         Span sp(30);
         for (int i = 0; i < 20; ++i) {
             sp.addNumber(i * 2);
         }
-        std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl;
+        print_shortest_span(sp);
+        print_longest_span(sp);
     }
-    std::cout << std::endl;
 
-    // random numbers test
-    std::cout << "=================" << std::endl;
-    std::cout << "random numbers test" << std::endl;
-    std::cout << "=================" << std::endl;
+    print_test_title("random large numbers test");
     {
         Span sp = Span(10002);
         std::vector<int> vec;
@@ -34,64 +66,61 @@ int main()
             vec.push_back(rand() % 100000);
         }
         sp.addNumber(vec.begin(), vec.end());
-        std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl;
+        // sp.put();
+        print_shortest_span(sp);
+        print_longest_span(sp);
 
         // int max - int min
         sp.addNumber(std::numeric_limits<int>::min());
         sp.addNumber(std::numeric_limits<int>::max());
-        std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl;
-    }
-    std::cout << std::endl;
 
-    std::cout << "=================" << std::endl;
-    std::cout << "addNumber test" << std::endl;
-    std::cout << "=================" << std::endl;
+        print_shortest_span(sp);
+        print_longest_span(sp);
+    }
+
+    print_test_title("addNumber test");
     {
         Span sp(0);
         try {
-            sp.addNumber(1);
-            std::cout << "1 added" << std::endl;
+            print_adding_num(sp, 1);
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }
         Span sp2(1);
         try {
-            sp2.addNumber(1);
-            std::cout << "1 added" << std::endl;
-            sp2.addNumber(2);
-            std::cout << "2 added" << std::endl;
+            print_adding_num(sp2, 1);
+            print_adding_num(sp2, 2);
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }
 
-        //TODO addNumberのiterator代入のテスト
+        //addNumberのiterator代入のテスト
         Span sp3(6);
-        const int arr[] = { 1, 31, 42, 82, 10, 47, 381 };
+        int arr[] = { 1, 31, 42, 82, 10, 47, 381 };
         try {
-            sp3.addNumber(arr, arr + 7);
-            sp3.put();
+            print_adding_numbers(sp3, arr, 3);
+        } catch (std::exception &e) {
+            std::cout << e.what() << std::endl;
+        }
+        try {
+            print_adding_numbers(sp3, arr, 7);
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }
     }
-    std::cout << std::endl;
 
-    std::cout << "=================" << std::endl;
-    std::cout << "span test with not enough numbers" << std::endl;
-    std::cout << "=================" << std::endl;
+    print_test_title("span test with not enough numbers");
     {
         //何も値が入っていない状態でのshortest, longestSpan
         Span sp = Span(10000);
         try {
-            std::cout << sp.shortestSpan() << std::endl;
+            print_shortest_span(sp);
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }
 
         try {
-            std::cout << sp.longestSpan() << std::endl;
+            print_longest_span(sp);
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }
@@ -99,16 +128,15 @@ int main()
         //値が１しか入っていない状態でのshortest, longestSpan
         sp.addNumber(1);
         try {
-            std::cout << sp.shortestSpan() << std::endl;
+            print_shortest_span(sp);
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }
 
         try {
-            std::cout << sp.longestSpan() << std::endl;
+            print_longest_span(sp);
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }
     }
-    std::cout << std::endl;
 }

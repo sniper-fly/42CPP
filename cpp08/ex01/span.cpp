@@ -79,6 +79,6 @@ unsigned int    Span::longestSpan()
 void            Span::put()
 {
     for (size_t i = 0; i < numbers.size(); ++i) {
-        std::cout << numbers[i] << std::endl;
+        std::cout << numbers[i] << " ";
     }
 }
