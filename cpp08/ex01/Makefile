@@ -8,7 +8,7 @@ ifdef debug
 CXX = g++
 endif
 
-CXXFLAGS = -Wall -Wextra -Werror -g -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -g -std=c++98 -pedantic
 ifdef sanitize
 CXXFLAGS += -fsanitize=address
 endif
