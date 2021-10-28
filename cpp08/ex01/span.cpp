@@ -1,6 +1,8 @@
 #include "span.hpp"
 #include <limits>
 #include <algorithm>
+#include <stdexcept>
+#include <iostream>
 
 Span::Span() { }
 
@@ -29,12 +31,18 @@ Span &Span::operator=(Span const &other)
 void            Span::addNumber(int num)
 {
     //エラー処理
+    if (max_length <= numbers.size()) {
+        throw std::out_of_range("Not enough length");
+    }
     numbers.push_back(num);
 }
 
 unsigned int    Span::shortestSpan()
 {
     //エラー処理
+    if (numbers.size() < 2) {
+        throw std::runtime_error("Not enough numbers");
+    }
 
     //ソートする
     std::vector<int> sorted_num(numbers);
@@ -52,6 +60,9 @@ unsigned int    Span::shortestSpan()
 unsigned int    Span::longestSpan()
 {
     //エラー処理
+    if (numbers.size() < 2) {
+        throw std::runtime_error("Not enough numbers");
+    }
 
     int min = std::numeric_limits<int>::max();
     int max = std::numeric_limits<int>::min();
@@ -63,4 +74,11 @@ unsigned int    Span::longestSpan()
     }
     //要素数分比較してmin, maxの差をとる
     return max - min;
+}
+
+void            Span::put()
+{
+    for (size_t i = 0; i < numbers.size(); ++i) {
+        std::cout << numbers[i] << std::endl;
+    }
 }

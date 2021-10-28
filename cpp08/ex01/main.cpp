@@ -14,7 +14,7 @@ int main()
     std::cout << "normal test" << std::endl;
     std::cout << "=================" << std::endl;
     {
-        Span sp(20);
+        Span sp(30);
         for (int i = 0; i < 20; ++i) {
             sp.addNumber(i * 2);
         }
@@ -46,12 +46,32 @@ int main()
     std::cout << std::endl;
 
     std::cout << "=================" << std::endl;
-    std::cout << "empty number test" << std::endl;
+    std::cout << "addNumber test" << std::endl;
     std::cout << "=================" << std::endl;
     {
         Span sp(0);
         try {
             sp.addNumber(1);
+            std::cout << "1 added" << std::endl;
+        } catch (std::exception &e) {
+            std::cout << e.what() << std::endl;
+        }
+        Span sp2(1);
+        try {
+            sp2.addNumber(1);
+            std::cout << "1 added" << std::endl;
+            sp2.addNumber(2);
+            std::cout << "2 added" << std::endl;
+        } catch (std::exception &e) {
+            std::cout << e.what() << std::endl;
+        }
+
+        //TODO addNumberのiterator代入のテスト
+        Span sp3(6);
+        const int arr[] = { 1, 31, 42, 82, 10, 47, 381 };
+        try {
+            sp3.addNumber(arr, arr + 7);
+            sp3.put();
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }
