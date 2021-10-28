@@ -6,7 +6,7 @@ class Span
 {
 private:
     std::vector<int>    numbers;
-    unsigned int        max;
+    unsigned int        max_length;
     Span();
 
 public:
