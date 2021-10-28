@@ -13,6 +13,10 @@ ifdef sanitize
 CXXFLAGS += -fsanitize=address
 endif
 
+ifdef my_test
+CXXFLAGS += -Dmy_test=1
+endif
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
