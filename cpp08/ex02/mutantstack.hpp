@@ -14,12 +14,12 @@ public:
     using const_reverse_iterator =
         typename std::stack<T>::container_type::const_reverse_iterator;
 
-    Mutantstack() : std::stack<T>() {}
-    virtual ~Mutantstack() {}
-    Mutantstack(Mutantstack const& other) {
+    MutantStack() : std::stack<T>() {}
+    virtual ~MutantStack() {}
+    MutantStack(MutantStack const& other) {
         // TODO 何かしら実装
     }
-    Mutantstack<T>& operator=(Mutantstack const& other) {
+    MutantStack<T>& operator=(MutantStack const& other) {
         this->c = other.c;
         return *this;
     }
