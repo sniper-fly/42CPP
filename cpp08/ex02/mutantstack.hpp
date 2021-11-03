@@ -17,22 +17,22 @@ public:
 
     MutantStack() : std::stack<T>() {}
     virtual ~MutantStack() {}
-    MutantStack(MutantStack const& other) {
-        // TODO 何かしら実装
-    }
-    MutantStack<T>& operator=(MutantStack const& other) {
+
+    MutantStack(const MutantStack& other) { *this = other; }
+
+    MutantStack<T>& operator=(const MutantStack& other) {
         this->c = other.c;
         return *this;
     }
 
-    iterator               begin() { return c.begin(); }
-    const_iterator         begin() const { return c.begin(); }
-    reverse_iterator       rbegin() { return c.rbegin(); }
-    const_reverse_iterator rbegin() const { return c.rbegin(); }
-    iterator               end() { return c.end(); }
-    const_iterator         end() const { return c.end(); }
-    reverse_iterator       rend() { return c.rend(); }
-    const_reverse_iterator rend() const { return c.rend(); }
+    iterator               begin() { return this->c.begin(); }
+    const_iterator         begin() const { return this->c.begin(); }
+    reverse_iterator       rbegin() { return this->c.rbegin(); }
+    const_reverse_iterator rbegin() const { return this->c.rbegin(); }
+    iterator               end() { return this->c.end(); }
+    const_iterator         end() const { return this->c.end(); }
+    reverse_iterator       rend() { return this->c.rend(); }
+    const_reverse_iterator rend() const { return this->c.rend(); }
 };
 
 #endif
