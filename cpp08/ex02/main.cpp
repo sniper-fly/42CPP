@@ -2,8 +2,7 @@
 #include <iostream>
 
 #ifndef my_test
-int main()
-{
+int main() {
     MutantStack<int> mstack;
 
     mstack.push(5);
@@ -21,17 +20,53 @@ int main()
     //[...]
     mstack.push(0);
 
-    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator it  = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
 
     ++it;
     --it;
-    while (it != ite)
-    {
+    while (it != ite) {
         std::cout << *it << std::endl;
         ++it;
     }
     std::stack<int> s(mstack);
     return 0;
 }
+#endif
+
+// #define my_test
+#ifdef my_test
+
+int main() {
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    mstack.push(3);
+    {
+        MutantStack<int>::iterator it  = mstack.begin();
+        MutantStack<int>::iterator ite = mstack.end();
+        while (it != ite) {
+            std::cout << *it << std::endl;
+            ++it;
+        }
+    }
+    MutantStack<int> copystack(mstack);
+    {
+        MutantStack<int>::iterator it  = copystack.begin();
+        MutantStack<int>::iterator ite = copystack.end();
+        while (it != ite) {
+            std::cout << *it << std::endl;
+            ++it;
+        }
+    }
+    {
+        MutantStack<int>::iterator it  = mstack.begin();
+        MutantStack<int>::iterator ite = mstack.end();
+        while (it != ite) {
+            std::cout << *it << std::endl;
+            ++it;
+        }
+    }
+}
+
 #endif
