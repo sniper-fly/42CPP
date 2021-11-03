@@ -1,9 +1,10 @@
 #include "mutantstack.hpp"
+#include <iostream>
 
 #ifndef my_test
 int main()
 {
-    MutantStack<int>
+    MutantStack<int> mstack;
 
     mstack.push(5);
     mstack.push(17);
