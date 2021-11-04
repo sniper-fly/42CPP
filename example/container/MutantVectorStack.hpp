@@ -1,5 +1,6 @@
-#ifndef MUTANTSTACK_HPP
-#define MUTANTSTACK_HPP
+#ifndef MUTANTVECTORSTACK_HPP
+#define MUTANTVECTORSTACK_HPP
+
 #include <stack>
 #include <iostream>
 #include <vector>

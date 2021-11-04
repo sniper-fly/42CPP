@@ -1,5 +1,6 @@
 #include "mutantstack.hpp"
 #include <iostream>
+#include <vector>
 
 #ifndef my_test
 int main() {
@@ -29,44 +30,29 @@ int main() {
         std::cout << *it << std::endl;
         ++it;
     }
-    std::stack<int> s(mstack);
+    std::stack<int, std::vector<int> > s(mstack);
     return 0;
 }
 #endif
 
-// #define my_test
+// #define my_test /////////////// TODO remove this line
 #ifdef my_test
 
-int main() {
+int main() { // 自動テスト作成
+    // ディープコピーされているかどうか
     MutantStack<int> mstack;
-    mstack.push(5);
-    mstack.push(17);
-    mstack.push(3);
-    {
-        MutantStack<int>::iterator it  = mstack.begin();
-        MutantStack<int>::iterator ite = mstack.end();
-        while (it != ite) {
-            std::cout << *it << std::endl;
-            ++it;
-        }
+    for (int i = 0; i < 10; ++i) {
+        mstack.push(i);
     }
-    MutantStack<int> copystack(mstack);
-    {
-        MutantStack<int>::iterator it  = copystack.begin();
-        MutantStack<int>::iterator ite = copystack.end();
-        while (it != ite) {
-            std::cout << *it << std::endl;
-            ++it;
-        }
+    MutantStack<int>           copy_mstack(mstack);
+    MutantStack<int>::iterator it  = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    for (; it != ite; ++it) {
     }
-    {
-        MutantStack<int>::iterator it  = mstack.begin();
-        MutantStack<int>::iterator ite = mstack.end();
-        while (it != ite) {
-            std::cout << *it << std::endl;
-            ++it;
-        }
-    }
+    // = 演算子、copy constructor
+    // push popで順番通り値が取り出せるか
+    // iteratorでアクセスして順番通り値が取り出せるか
+    // メモリリーク
 }
 
 #endif
