@@ -5,21 +5,18 @@
 #include <vector>
 
 template<typename T>
-class MutantStack : public std::stack<T, std::vector<T> >
+class MutantStack : public std::stack<T>
 {
 public:
-    typedef typename std::stack<T, std::vector<T> >::container_type::iterator
-        iterator;
+    typedef typename std::stack<T>::container_type::iterator iterator;
     typedef
-        typename std::stack<T, std::vector<T> >::container_type::const_iterator
-                                                           const_iterator;
-    typedef typename std::stack<T,
-        std::vector<T> >::container_type::reverse_iterator reverse_iterator;
-    typedef typename std::stack<T,
-        std::vector<T> >::container_type::const_reverse_iterator
+        typename std::stack<T>::container_type::const_iterator const_iterator;
+    typedef typename std::stack<T>::container_type::reverse_iterator
+        reverse_iterator;
+    typedef typename std::stack<T>::container_type::const_reverse_iterator
         const_reverse_iterator;
 
-    MutantStack() : std::stack<T, std::vector<T> >() {}
+    MutantStack() : std::stack<T>() {}
     virtual ~MutantStack() {}
 
     MutantStack(const MutantStack& other) { *this = other; }
