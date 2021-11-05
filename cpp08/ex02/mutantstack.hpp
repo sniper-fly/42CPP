@@ -21,7 +21,7 @@ public:
 
     MutantStack(const MutantStack& other) { *this = other; }
 
-    MutantStack<T>& operator=(const MutantStack& other) const {
+    MutantStack<T>& operator=(const MutantStack& other) {
         this->c = other.c;
         return *this;
     }
