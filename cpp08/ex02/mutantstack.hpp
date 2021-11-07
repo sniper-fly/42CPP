@@ -19,9 +19,9 @@ public:
     MutantStack() : std::stack<T>() {}
     virtual ~MutantStack() {}
 
-    MutantStack(const MutantStack& other) { *this = other; }
+    MutantStack(const MutantStack<T>& other) { *this = other; }
 
-    MutantStack<T>& operator=(const MutantStack& other) {
+    MutantStack<T>& operator=(const MutantStack<T>& other) {
         this->c = other.c;
         return *this;
     }
