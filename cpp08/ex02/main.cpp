@@ -1,8 +1,10 @@
 #include "mutantstack.hpp"
 #include <iostream>
 #include <vector>
+#include <list>
 
-#ifndef my_test
+#if ! defined(my_test) && ! defined(cmp_with_list)
+
 int main() {
     MutantStack<int> mstack;
 
@@ -33,9 +35,9 @@ int main() {
     std::stack<int> s(mstack);
     return 0;
 }
+
 #endif
 
-#define my_test /////////////// TODO remove this line
 #ifdef my_test
 
 void deep_copy_test(MutantStack<int>& mstack, MutantStack<int>& copy_mstack) {
@@ -143,7 +145,40 @@ int main() { // 自動テスト作成
     const_reverse_iterator_test();
 
     // メモリリーク
-    // std::listに入れ替えたときのテスト
+}
+
+#endif
+
+#ifdef cmp_with_list
+
+int main() {
+    std::list<int> lst;
+
+    lst.push_back(5);
+    lst.push_back(17);
+
+    std::cout << lst.back() << std::endl;
+
+    lst.pop_back();
+
+    std::cout << lst.size() << std::endl;
+
+    lst.push_back(3);
+    lst.push_back(5);
+    lst.push_back(737);
+    //[...]
+    lst.push_back(0);
+
+    std::list<int>::iterator it  = lst.begin();
+    std::list<int>::iterator ite = lst.end();
+
+    ++it;
+    --it;
+    while (it != ite) {
+        std::cout << *it << std::endl;
+        ++it;
+    }
+    return 0;
 }
 
 #endif
