@@ -88,6 +88,39 @@ void compare_2value_with_try_catch(
     }
 }
 
+void iterator_test() {
+    const int        DATA_LEN = 10;
+    MutantStack<int> mstack;
+    for (int i = 0; i < DATA_LEN; ++i) {
+        mstack.push(i);
+    }
+    MutantStack<int>::iterator it  = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    for (int i = 0; it != ite; ++i, ++it) {
+        if (*it != i) {
+            throw std::runtime_error("iterator");
+        }
+    }
+    std::cout << "iterator test completed" << std::endl;
+}
+
+void const_reverse_iterator_test() {
+    const int        DATA_LEN = 10;
+    MutantStack<int> base_mstack;
+    for (int i = 0; i < DATA_LEN; ++i) {
+        base_mstack.push(i);
+    }
+    const MutantStack<int>                   mstack(base_mstack);
+    MutantStack<int>::const_reverse_iterator it  = mstack.rbegin();
+    MutantStack<int>::const_reverse_iterator ite = mstack.rend();
+    for (int i = DATA_LEN - 1; it != ite; --i, ++it) {
+        if (*it != i) {
+            throw std::runtime_error("iterator");
+        }
+    }
+    std::cout << "const reverse iterator test completed" << std::endl;
+}
+
 int main() { // 自動テスト作成
     const int DATA_LEN = 10;
     // ディープコピーされているかどうか
@@ -106,6 +139,9 @@ int main() { // 自動テスト作成
     pop_push_test();
 
     // iteratorでアクセスして順番通り値が取り出せるか
+    iterator_test();
+    const_reverse_iterator_test();
+
     // メモリリーク
     // std::listに入れ替えたときのテスト
 }
