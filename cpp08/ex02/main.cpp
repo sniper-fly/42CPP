@@ -3,6 +3,10 @@
 #include <vector>
 #include <list>
 
+#define END   "\033[0m"
+#define RED   "\033[31m"
+#define GREEN "\033[32m"
+
 #if ! defined(my_test) && ! defined(cmp_with_list)
 
 int main() {
@@ -72,7 +76,44 @@ int main() {
 
 #endif
 
+// #define my_test
 #ifdef my_test
+
+void deep_copy_test(MutantStack<int>& mstack, MutantStack<int>& copy_mstack);
+void pop_push_test();
+void iterator_test();
+void const_reverse_iterator_test();
+
+int main() { // 自動テスト作成
+    const int DATA_LEN = 10;
+    // ディープコピーされているかどうか
+    // = 演算子、copy constructor
+    MutantStack<int> mstack;
+    for (int i = 0; i < DATA_LEN; ++i) {
+        mstack.push(i);
+    }
+
+    std::cout << GREEN << "--------deep copy test--------" << END << std::endl;
+    MutantStack<int> copy_mstack(mstack);
+    deep_copy_test(mstack, copy_mstack);
+
+    MutantStack<int> assign_mstack;
+    assign_mstack = mstack;
+    deep_copy_test(mstack, copy_mstack);
+
+    // push popで順番通り値が取り出せるか
+    std::cout << GREEN << "--------pop push test--------" << END << std::endl;
+    pop_push_test();
+
+    // iteratorでアクセスして順番通り値が取り出せるか
+    std::cout << GREEN << "--------iterator test--------" << END << std::endl;
+    iterator_test();
+
+    std::cout << GREEN << "---const reverse iterator---" << END << std::endl;
+    const_reverse_iterator_test();
+
+    // メモリリーク
+}
 
 void deep_copy_test(MutantStack<int>& mstack, MutantStack<int>& copy_mstack) {
     MutantStack<int>::iterator it  = mstack.begin();
@@ -84,9 +125,9 @@ void deep_copy_test(MutantStack<int>& mstack, MutantStack<int>& copy_mstack) {
     MutantStack<int>::iterator ite_mstack = mstack.end();
     MutantStack<int>::iterator it_copy    = copy_mstack.begin();
     for (; it_mstack != ite_mstack; ++it_mstack, ++it_copy) {
+        std::cout << "mstack: " << *it_mstack << ", ";
+        std::cout << "copy_mstack: " << *it_copy << std::endl;
         if (*it_mstack == *it_copy) {
-            std::cout << "mstack: " << *it_mstack << std::endl;
-            std::cout << "copy_mstack: " << *it_copy << std::endl;
             throw std::runtime_error("deep copy failed");
         }
     }
@@ -145,31 +186,6 @@ void const_reverse_iterator_test() {
         }
     }
     std::cout << "const reverse iterator test completed" << std::endl;
-}
-
-int main() { // 自動テスト作成
-    const int DATA_LEN = 10;
-    // ディープコピーされているかどうか
-    // = 演算子、copy constructor
-    MutantStack<int> mstack;
-    for (int i = 0; i < DATA_LEN; ++i) {
-        mstack.push(i);
-    }
-    MutantStack<int> copy_mstack(mstack);
-    deep_copy_test(mstack, copy_mstack);
-
-    MutantStack<int> assign_mstack;
-    assign_mstack = mstack;
-    deep_copy_test(mstack, copy_mstack);
-
-    // push popで順番通り値が取り出せるか
-    pop_push_test();
-
-    // iteratorでアクセスして順番通り値が取り出せるか
-    iterator_test();
-    const_reverse_iterator_test();
-
-    // メモリリーク
 }
 
 #endif
