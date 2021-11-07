@@ -56,6 +56,28 @@ void deep_copy_test(MutantStack<int>& mstack, MutantStack<int>& copy_mstack) {
     }
 }
 
+void pop_push_test() {
+    const int   len           = 4;
+    const float test_val[len] = {
+        3.89, //
+        5.34, //
+        2.1,  //
+        3.45, //
+    };
+    MutantStack<float> mstack;
+    for (int i = 0; i < len; ++i) {
+        mstack.push(test_val[i]);
+    }
+    for (int i = 0; i < len; ++i) {
+        float top = mstack.top();
+        std::cout << "top: " << top << std::endl;
+        if (top != test_val[len - i - 1]) {
+            std::cerr << "!!!!!!!!!!!pop push failure!!!!!!!!!!!" << std::endl;
+        }
+        mstack.pop();
+    }
+}
+
 void compare_2value_with_try_catch(
     void (*test_func)(MutantStack<int>&, MutantStack<int>&),
     MutantStack<int>& mstack1, MutantStack<int>& mstack2) {
@@ -81,8 +103,11 @@ int main() { // 自動テスト作成
     compare_2value_with_try_catch(deep_copy_test, mstack, assign_mstack);
 
     // push popで順番通り値が取り出せるか
+    pop_push_test();
+
     // iteratorでアクセスして順番通り値が取り出せるか
     // メモリリーク
+    // std::listに入れ替えたときのテスト
 }
 
 #endif
