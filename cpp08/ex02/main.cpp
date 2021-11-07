@@ -88,18 +88,25 @@ int main() { // 自動テスト作成
     const int DATA_LEN = 10;
     // ディープコピーされているかどうか
     // = 演算子、copy constructor
-    MutantStack<int> mstack;
-    for (int i = 0; i < DATA_LEN; ++i) {
-        mstack.push(i);
-    }
-
     std::cout << GREEN << "--------deep copy test--------" << END << std::endl;
-    MutantStack<int> copy_mstack(mstack);
-    deep_copy_test(mstack, copy_mstack);
-
-    MutantStack<int> assign_mstack;
-    assign_mstack = mstack;
-    deep_copy_test(mstack, copy_mstack);
+    {
+        MutantStack<int> mstack;
+        for (int i = 0; i < DATA_LEN; ++i) {
+            mstack.push(i);
+        }
+        MutantStack<int> copy_mstack(mstack);
+        deep_copy_test(mstack, copy_mstack);
+    }
+    std::cout << "----------------------" << std::endl;
+    {
+        MutantStack<int> mstack;
+        for (int i = 0; i < DATA_LEN; ++i) {
+            mstack.push(i);
+        }
+        MutantStack<int> assign_mstack;
+        assign_mstack = mstack;
+        deep_copy_test(mstack, assign_mstack);
+    }
 
     // push popで順番通り値が取り出せるか
     std::cout << GREEN << "--------pop push test--------" << END << std::endl;
@@ -149,7 +156,7 @@ void pop_push_test() {
         float top = mstack.top();
         std::cout << "top: " << top << std::endl;
         if (top != test_val[len - i - 1]) {
-            std::cerr << "!!!!!!!!!!!pop push failure!!!!!!!!!!!" << std::endl;
+            throw std::runtime_error("pop push failure");
         }
         mstack.pop();
     }
@@ -164,6 +171,8 @@ void iterator_test() {
     MutantStack<int>::iterator it  = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
     for (int i = 0; it != ite; ++i, ++it) {
+        std::cout << "it: " << *it << ", ";
+        std::cout << "i: " << i << std::endl;
         if (*it != i) {
             throw std::runtime_error("iterator");
         }
@@ -181,6 +190,8 @@ void const_reverse_iterator_test() {
     MutantStack<int>::const_reverse_iterator it  = mstack.rbegin();
     MutantStack<int>::const_reverse_iterator ite = mstack.rend();
     for (int i = DATA_LEN - 1; it != ite; --i, ++it) {
+        std::cout << "it: " << *it << ", ";
+        std::cout << "i: " << i << std::endl;
         if (*it != i) {
             throw std::runtime_error("iterator");
         }
