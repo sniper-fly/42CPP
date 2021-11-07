@@ -85,28 +85,20 @@ void iterator_test();
 void const_reverse_iterator_test();
 
 int main() { // 自動テスト作成
-    const int DATA_LEN = 10;
     // ディープコピーされているかどうか
     // = 演算子、copy constructor
     std::cout << GREEN << "--------deep copy test--------" << END << std::endl;
-    {
-        MutantStack<int> mstack;
-        for (int i = 0; i < DATA_LEN; ++i) {
-            mstack.push(i);
-        }
-        MutantStack<int> copy_mstack(mstack);
-        deep_copy_test(mstack, copy_mstack);
+    const int        DATA_LEN = 10;
+    MutantStack<int> mstack;
+    for (int i = 0; i < DATA_LEN; ++i) {
+        mstack.push(i);
     }
+    MutantStack<int> copy_mstack(mstack);
+    deep_copy_test(mstack, copy_mstack);
     std::cout << "----------------------" << std::endl;
-    {
-        MutantStack<int> mstack;
-        for (int i = 0; i < DATA_LEN; ++i) {
-            mstack.push(i);
-        }
-        MutantStack<int> assign_mstack;
-        assign_mstack = mstack;
-        deep_copy_test(mstack, assign_mstack);
-    }
+    MutantStack<int> assign_mstack;
+    assign_mstack = mstack;
+    deep_copy_test(mstack, assign_mstack);
 
     // push popで順番通り値が取り出せるか
     std::cout << GREEN << "--------pop push test--------" << END << std::endl;
@@ -123,8 +115,8 @@ int main() { // 自動テスト作成
 }
 
 void deep_copy_test(MutantStack<int>& mstack, MutantStack<int>& copy_mstack) {
-    MutantStack<int>::iterator it  = mstack.begin();
-    MutantStack<int>::iterator ite = mstack.end();
+    MutantStack<int>::iterator it  = copy_mstack.begin();
+    MutantStack<int>::iterator ite = copy_mstack.end();
     for (; it != ite; ++it) {
         *it += 5;
     }
