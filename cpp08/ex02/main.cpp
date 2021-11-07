@@ -80,16 +80,6 @@ void pop_push_test() {
     }
 }
 
-void compare_2value_with_try_catch(
-    void (*test_func)(MutantStack<int>&, MutantStack<int>&),
-    MutantStack<int>& mstack1, MutantStack<int>& mstack2) {
-    try {
-        (*test_func)(mstack1, mstack2);
-    } catch (std::exception& e) {
-        std::cout << e.what() << std::endl;
-    }
-}
-
 void iterator_test() {
     const int        DATA_LEN = 10;
     MutantStack<int> mstack;
@@ -132,10 +122,11 @@ int main() { // 自動テスト作成
         mstack.push(i);
     }
     MutantStack<int> copy_mstack(mstack);
-    compare_2value_with_try_catch(deep_copy_test, mstack, copy_mstack);
+    deep_copy_test(mstack, copy_mstack);
+
     MutantStack<int> assign_mstack;
     assign_mstack = mstack;
-    compare_2value_with_try_catch(deep_copy_test, mstack, assign_mstack);
+    deep_copy_test(mstack, copy_mstack);
 
     // push popで順番通り値が取り出せるか
     pop_push_test();
